@@ -15,18 +15,20 @@ interface Power {
   group: string;
 }
 
-interface WeaponDamage {
+interface Damage {
   dice: string;
   type: string;
-  stat: string;
   bonus: number;
+  stat: string | undefined;
 }
 
 interface Weapon {
   name: string;
   properties: string;
   attackBonus: number;
-  damages: WeaponDamage[];
+  damages: Damage[];
+  ammo: number;
+  maxAmmo: number;
 }
 
 interface Spell {
@@ -57,48 +59,26 @@ class PowerGroup {
 
 const MAX_SPELLS_LINES = 26;
 
-const getDamage = (damagelist: any): string => {
-  let damage = "";
+const parseDamageList = (damagelist: any): Damage[] => {
+  let damages: Damage[] = [];
 
   if (damagelist && damagelist.length) {
     const keys = Object.keys(damagelist[0]);
     keys.forEach((key) => {
-      const dice = damagelist[0][key][0].dice;
-      const type = damagelist[0][key][0].type;
-      const bonus = damagelist[0][key][0].bonus;
-      if (dice && dice.length) {
-        dice.forEach((die: any) => {
-          if (die._ === "d4") {
-            damage = "1d4";
-          } else if (die._ === "d6") {
-            damage = "1d6";
-          } else if (die._ === "d8") {
-            damage = "1d8";
-          } else if (die._ === "d10") {
-            damage = "1d10";
-          } else if (die._ === "d12") {
-            damage = "1d12";
-          } else {
-            if (die._) {
-              damage = die._;
-            } else {
-              damage = "";
-            }
-          }
-        });
-      }
-
-      if (bonus && bonus.length && bonus[0]._ !== "0") {
-        damage = `${damage} ${damage.length ? "+" : ""} ${bonus[0]._}`;
-      }
-
-      if (type && type.length) {
-        damage = `${damage} ${type[0]._} `;
+      let damage: Damage = {
+        dice: damagelist[0][key][0].dice[0]._,
+        type: damagelist[0][key][0].type[0]._,
+        bonus: parseInt(damagelist[0][key][0].bonus[0]._),
+        stat: damagelist[0][key][0].stat ? damagelist[0][key][0].stat[0]._ : undefined
+      };
+      if (damage.dice.startsWith("d")) {
+        damage.dice = `1${damage.dice}`
       }
     });
+    return damages;
   }
 
-  return damage;
+  return damages;
 };
 
 const getPowers = (powers: any): Power[] => {
@@ -238,142 +218,78 @@ const getPowers = (powers: any): Power[] => {
   return allPowers;
 };
 
+const parseMagicSlotList = (obj: any, slotName: string): number[] => {
+  let slots: number[] = [];
+  for (let i = 1; i <= 9; i++) {
+    slots[i - 1] = parseInt(obj[`${slotName}${i}` as keyof any][0].max[0]._, 10);
+  }
+  return slots;
+};
+
 export const powerToString = (power: Power): string | JSX.Element => {
   return <span><span>{power.prepared ? "✓" : ""}</span><span>{power.name}</span></span>;
   // return `${power.prepared ? "✓" : ""} ${power.name}`;
 };
 
 export const Actions = ({ character }: SpellsProps) => {
-  const { powers, powermeta: spellSlots, weaponlist: weaponList } = character;
+  const { powers, powermeta: slots, weaponlist: weaponList } = character;
 
   const allFeatures: (string | JSX.Element)[] = [];
 
-  // Add weaponlist
-  allFeatures.push("TITLE:Weapons");
-  allFeatures.push("TITLE:NORENDER");
-  const usedWeaponStrings: Record<string, number> = {};
+  let model: CharacterActions = {
+    weapons: [],
+    spellSlots: [],
+    pactSlots: [],
+    magicSpells: new Map(),
+    pactSpells: new Map()
+  };
+
+  // Parse out weapons
+  const weaponsAlreadyAdded: Set<string> = new Set();
   if (weaponList && weaponList.length > 0) {
     weaponList.forEach((weaponKeys: any) => {
       const keys = Object.keys(weaponKeys);
       keys.forEach((key) => {
-        const weapon = weaponKeys[key][0];
-        const name = weapon.name ? weapon.name[0]._ : "";
-        const ammo = weapon.ammo ? parseInt(weapon.ammo[0]._, 10) : 0;
-        const maxammo = weapon.maxammo ? parseInt(weapon.maxammo[0]._, 10) : 0;
-        const string = `${name}${
-          maxammo > 0 ? ` (Ammo ${ammo}/${maxammo})` : ""
-        } 
-          - ${getDamage(weapon.damagelist)}`;
-        if (Object.keys(usedWeaponStrings).indexOf(string) === -1) {
-          allFeatures.push(string);
-          usedWeaponStrings[string] = 1;
+        const weaponData = weaponKeys[key][0];
+        let weapon: Weapon = {
+          name: weaponData.name ? weaponData.name[0]._ : "",
+          properties: weaponData.properties ? weaponData.properties[0]._ : "",
+          attackBonus: weaponData.attackbonus ? weaponData.attackbonus[0]._ : 0,
+          damages: parseDamageList(weaponData.damagelist),
+          ammo: weaponData.ammo ? parseInt(weaponData.ammo[0]._, 10) : 0,
+          maxAmmo: weaponData.maxammo ? parseInt(weaponData.maxammo[0]._, 10) : 0,
+        };
+        
+        if (!weaponsAlreadyAdded.has(weapon.name)) {
+          model.weapons.push(weapon);
+          weaponsAlreadyAdded.add(weapon.name);
         }
       });
     });
-  } else {
-    allFeatures.push("None");
   }
 
   // Add Spell Slots
   if (
-    spellSlots &&
-    spellSlots[0] &&
-    spellSlots[0].spellslots1 &&
-    spellSlots[0].spellslots1[0] &&
-    spellSlots[0].spellslots1[0].max &&
-    parseInt(spellSlots[0].spellslots1[0].max[0]._, 10) > 0
+    slots &&
+    slots[0] &&
+    slots[0].spellslots1 &&
+    slots[0].spellslots1[0] &&
+    slots[0].spellslots1[0].max &&
+    parseInt(slots[0].spellslots1[0].max[0]._, 10) > 0
   ) {
-    const spellSlots1 = parseInt(spellSlots[0].spellslots1[0].max[0]._, 10);
-    const spellSlots2 = spellSlots[0].spellslots2
-      ? parseInt(spellSlots[0].spellslots2[0].max[0]._, 10)
-      : 0;
-    const spellSlots3 = spellSlots[0].spellslots3
-      ? parseInt(spellSlots[0].spellslots3[0].max[0]._, 10)
-      : 0;
-    const spellSlots4 = spellSlots[0].spellslots4
-      ? parseInt(spellSlots[0].spellslots4[0].max[0]._, 10)
-      : 0;
-    const spellSlots5 = spellSlots[0].spellslots5
-      ? parseInt(spellSlots[0].spellslots5[0].max[0]._, 10)
-      : 0;
-    const spellSlots6 = spellSlots[0].spellslots6
-      ? parseInt(spellSlots[0].spellslots6[0].max[0]._, 10)
-      : 0;
-    const spellSlots7 = spellSlots[0].spellslots7
-      ? parseInt(spellSlots[0].spellslots7[0].max[0]._, 10)
-      : 0;
-    const spellSlots8 = spellSlots[0].spellslots8
-      ? parseInt(spellSlots[0].spellslots8[0].max[0]._, 10)
-      : 0;
-    const spellSlots9 = spellSlots[0].spellslots9
-      ? parseInt(spellSlots[0].spellslots9[0].max[0]._, 10)
-      : 0;
-
-    allFeatures.push("TITLE:Spell Slots");
-    allFeatures.push(
-      `1st: ${spellSlots1} 2nd: ${spellSlots2} 3rd: ${spellSlots3} ` +
-        `4th: ${spellSlots4} 5th: ${spellSlots5} 6th: ${spellSlots6} 7th: ${spellSlots7} ` +
-        `8th: ${spellSlots8} 9th: ${spellSlots9}`
-    );
-    allFeatures.push("TITLE:NORENDER");
+    model.spellSlots = parseMagicSlotList(slots[0], "spellslots");
   }
 
   // Add Pact Magic
   if (
-    spellSlots &&
-    spellSlots[0] &&
-    spellSlots[0].pactmagicslots1 &&
-    spellSlots[0].pactmagicslots1[0] &&
-    spellSlots[0].pactmagicslots1[0].max &&
-    parseInt(spellSlots[0].pactmagicslots1[0].max[0]._, 10) > 0
+    slots &&
+    slots[0] &&
+    slots[0].pactmagicslots1 &&
+    slots[0].pactmagicslots1[0] &&
+    slots[0].pactmagicslots1[0].max &&
+    parseInt(slots[0].pactmagicslots1[0].max[0]._, 10) > 0
   ) {
-    const spellSlots1 = parseInt(spellSlots[0].pactmagicslots1[0].max[0]._, 10);
-    const spellSlots2 = spellSlots[0].pactmagicslots2
-      ? parseInt(spellSlots[0].pactmagicslots2[0].max[0]._, 10)
-      : 0;
-    const spellSlots3 = spellSlots[0].pactmagicslots3
-      ? parseInt(spellSlots[0].pactmagicslots3[0].max[0]._, 10)
-      : 0;
-    const spellSlots4 = spellSlots[0].pactmagicslots4
-      ? parseInt(spellSlots[0].pactmagicslots4[0].max[0]._, 10)
-      : 0;
-    const spellSlots5 = spellSlots[0].pactmagicslots5
-      ? parseInt(spellSlots[0].pactmagicslots5[0].max[0]._, 10)
-      : 0;
-    const spellSlots6 = spellSlots[0].pactmagicslots6
-      ? parseInt(spellSlots[0].pactmagicslots6[0].max[0]._, 10)
-      : 0;
-    const spellSlots7 = spellSlots[0].pactmagicslots7
-      ? parseInt(spellSlots[0].pactmagicslots7[0].max[0]._, 10)
-      : 0;
-    const spellSlots8 = spellSlots[0].pactmagicslots8
-      ? parseInt(spellSlots[0].pactmagicslots8[0].max[0]._, 10)
-      : 0;
-    const spellSlots9 = spellSlots[0].pactmagicslots9
-      ? parseInt(spellSlots[0].pactmagicslots9[0].max[0]._, 10)
-      : 0;
-
-    allFeatures.push("TITLE:Pact Magic");
-    if (spellSlots9 > 0) {
-      allFeatures.push(`9th Level Slots: ${spellSlots9}`);
-    } else if (spellSlots8 > 0) {
-      allFeatures.push(`8th Level Slots: ${spellSlots8}`);
-    } else if (spellSlots7 > 0) {
-      allFeatures.push(`7th Level Slots: ${spellSlots7}`);
-    } else if (spellSlots6 > 0) {
-      allFeatures.push(`6th Level Slots: ${spellSlots6}`);
-    } else if (spellSlots5 > 0) {
-      allFeatures.push(`5th Level Slots: ${spellSlots5}`);
-    } else if (spellSlots4 > 0) {
-      allFeatures.push(`4th Level Slots: ${spellSlots4}`);
-    } else if (spellSlots3 > 0) {
-      allFeatures.push(`3rd Level Slots: ${spellSlots3}`);
-    } else if (spellSlots2 > 0) {
-      allFeatures.push(`2nd Level Slots: ${spellSlots2}`);
-    } else if (spellSlots1 > 0) {
-      allFeatures.push(`1st Level Slots: ${spellSlots1}`);
-    }
-    allFeatures.push("TITLE:NORENDER");
+    model.pactSlots = parseMagicSlotList(slots[0], "pacmagicslots");
   }
 
   const allPowers = getPowers(powers);
