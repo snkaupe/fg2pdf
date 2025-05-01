@@ -780,6 +780,7 @@ input {
 
 .spellText {
   padding: 0 5%;
+  text-align: justify;
 }
 
 .inventoryItem {
