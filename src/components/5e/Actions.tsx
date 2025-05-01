@@ -3,6 +3,8 @@ import CharacterHeader from "./CharacterHeader";
 import Page from "../Page";
 import { Icons } from "./Icons";
 
+type SpellLevel = number;
+
 interface SpellsProps {
   character: any;
 }
@@ -11,6 +13,38 @@ interface Power {
   name: string;
   prepared: boolean;
   group: string;
+}
+
+interface WeaponDamage {
+  dice: string;
+  type: string;
+  stat: string;
+  bonus: number;
+}
+
+interface Weapon {
+  name: string;
+  properties: string;
+  attackBonus: number;
+  damages: WeaponDamage[];
+}
+
+interface Spell {
+  name: string;
+  school: string;
+  level: SpellLevel;
+  range: number;
+  castingTime: number;
+  duration: number;
+  components: string;
+}
+
+interface Actions {
+  weapons: Weapon[];
+  spellSlots: number[];
+  pactSlots: number[];
+  magicSpells: Map<SpellLevel, Spell[]>;
+  pactSpells: Map<SpellLevel, Spell[]>;
 }
 
 class PowerGroup {
