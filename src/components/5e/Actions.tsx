@@ -39,7 +39,7 @@ interface Spell {
   components: string;
 }
 
-interface Actions {
+interface CharacterActions {
   weapons: Weapon[];
   spellSlots: number[];
   pactSlots: number[];
