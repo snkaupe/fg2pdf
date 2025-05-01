@@ -1,6 +1,7 @@
 import React, { JSX } from "react";
 import CharacterHeader from "./CharacterHeader";
 import Page from "../Page";
+import { Icons } from "./Icons";
 
 interface SpellsProps {
   character: any;
