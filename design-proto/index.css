@@ -730,6 +730,7 @@ input {
   justify-content: space-between;
   padding-left: 2px;
   padding-right: 2px;
+  padding-top: 2px;
 }
 
 .spellTitleLine span {
