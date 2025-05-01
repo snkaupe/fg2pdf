@@ -1,0 +1,923 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root version="4.7" dataversion="20241002" release="8.1|CoreRPG:7">
+	<character>
+		<abilities>
+			<charisma>
+				<bonus type="number">1</bonus>
+				<save type="number">1</save>
+				<savemodifier type="number">0</savemodifier>
+				<saveprof type="number">0</saveprof>
+				<score type="number">12</score>
+			</charisma>
+			<constitution>
+				<bonus type="number">3</bonus>
+				<save type="number">5</save>
+				<savemodifier type="number">0</savemodifier>
+				<saveprof type="number">1</saveprof>
+				<score type="number">16</score>
+			</constitution>
+			<dexterity>
+				<bonus type="number">1</bonus>
+				<save type="number">1</save>
+				<savemodifier type="number">0</savemodifier>
+				<saveprof type="number">0</saveprof>
+				<score type="number">13</score>
+			</dexterity>
+			<intelligence>
+				<bonus type="number">3</bonus>
+				<save type="number">5</save>
+				<savemodifier type="number">0</savemodifier>
+				<saveprof type="number">1</saveprof>
+				<score type="number">16</score>
+			</intelligence>
+			<strength>
+				<bonus type="number">-1</bonus>
+				<save type="number">-1</save>
+				<savemodifier type="number">0</savemodifier>
+				<saveprof type="number">0</saveprof>
+				<score type="number">8</score>
+			</strength>
+			<wisdom>
+				<bonus type="number">0</bonus>
+				<save type="number">2</save>
+				<savemodifier type="number">0</savemodifier>
+				<saveprof type="number">1</saveprof>
+				<score type="number">10</score>
+			</wisdom>
+		</abilities>
+		<background type="string">Charlatan</background>
+		<backgroundlink type="windowreference">
+			<class>reference_background</class>
+			<recordname>reference.backgrounddata.charlatan@DD PHB Deluxe</recordname>
+		</backgroundlink>
+		<classes>
+			<id-00001>
+				<cantrips type="number">3</cantrips>
+				<casterlevelinvmult type="number">1</casterlevelinvmult>
+				<casterpactmagic type="number">0</casterpactmagic>
+				<hddie type="dice">1d6</hddie>
+				<hdused type="number">0</hdused>
+				<level type="number">1</level>
+				<name type="string">Wizard</name>
+				<shortcut type="windowreference">
+					<class>reference_class</class>
+					<recordname>reference.classdata.wizard@DD Tashas Cauldron of Everything - Players</recordname>
+				</shortcut>
+				<specializationlink type="windowreference">
+					<class />
+					<recordname />
+				</specializationlink>
+				<spellability type="string">intelligence</spellability>
+				<spellsknown type="number">6</spellsknown>
+				<spellsprepared type="number">1</spellsprepared>
+			</id-00001>
+		</classes>
+		<coins>
+			<id-00001>
+				<amount type="number">0</amount>
+				<name type="string">PP</name>
+			</id-00001>
+			<id-00002>
+				<amount type="number">15</amount>
+				<name type="string">GP</name>
+			</id-00002>
+			<id-00003>
+				<amount type="number">0</amount>
+				<name type="string">EP</name>
+			</id-00003>
+			<id-00004>
+				<amount type="number">0</amount>
+				<name type="string">SP</name>
+			</id-00004>
+			<id-00005>
+				<amount type="number">0</amount>
+				<name type="string">CP</name>
+			</id-00005>
+		</coins>
+		<defenses>
+			<ac>
+				<armor type="number">0</armor>
+				<disstealth type="number">0</disstealth>
+				<misc type="number">0</misc>
+				<prof type="number">1</prof>
+				<shield type="number">0</shield>
+				<temporary type="number">0</temporary>
+				<total type="number">11</total>
+			</ac>
+		</defenses>
+		<encumbrance>
+			<encumbered type="number">40</encumbered>
+			<encumberedheavy type="number">80</encumberedheavy>
+			<liftpushdrag type="number">240</liftpushdrag>
+			<load type="number">78</load>
+			<max type="number">120</max>
+		</encumbrance>
+		<exp type="number">0</exp>
+		<expneeded type="number">300</expneeded>
+		<featlist>
+			<id-00001>
+				<locked type="number">1</locked>
+				<name type="string">Resilient</name>
+				<text type="formattedtext">
+					<p>Choose one ability score. You gain the following benefits:</p>
+					<list>
+						<li>Increase the chosen ability score by 1, to a maximum of 20.</li>
+						<li>You gain proficiency in saving throws using the chosen ability.</li>
+					</list>
+				</text>
+			</id-00001>
+		</featlist>
+		<featurelist>
+			<id-00001>
+				<locked type="number">1</locked>
+				<name type="string">False Identity</name>
+				<text type="formattedtext">
+					<p>You have created a second identity that includes documentation, established acquaintances, and disguises that allow you to assume that persona.</p>
+					<p>Additionally, you can forge documents including official papers and personal letters, as long as you have seen an example of the kind of document or the handwriting you are trying to copy.</p>
+				</text>
+			</id-00001>
+			<id-00002>
+				<level type="number">1</level>
+				<locked type="number">1</locked>
+				<name type="string">Additional Wizard Spells (Option)</name>
+				<specializationchoice type="number">0</specializationchoice>
+				<text type="formattedtext">
+					<p>
+						<i>1st-level wizard feature</i>
+					</p>
+					<p>The spells in the following list expand the wizard spell list in the <i>Player's Handbook. </i>The list is organized by spell level, not character level. A spell's school of magic is noted, and if a spell can be cast as a ritual, the ritual tag appears after the spell's name. Each spell is in the <i>Player's Handbook, </i>unless it has an asterisk (a spell in chapter 3). <i>Xanathar's Guide to Everything </i>also offers more spells.</p>
+					<linklist>
+						<link class="class_spell_view" recordname="class_spell_view.wizard@DD Tashas Cauldron of Everything - Players">
+							<b>Optional: </b>Wizards Spells</link>
+					</linklist>
+				</text>
+			</id-00002>
+			<id-00003>
+				<level type="number">1</level>
+				<locked type="number">1</locked>
+				<name type="string">Arcane Recovery</name>
+				<text type="formattedtext">
+					<p>You have learned to regain some of your magical energy by studying your spellbook. Once per day when you finish a short rest, you can choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your wizard level (rounded up), and none of the slots can be 6th level or higher.</p>
+					<p>For example, if you're a 4th-level wizard, you can recover up to two levels worth of spell slots. You can recover either a 2nd-level spell slot or two 1st-level spell slots.</p>
+				</text>
+			</id-00003>
+			<id-00004>
+				<level type="number">1</level>
+				<locked type="number">1</locked>
+				<name type="string">Spellcasting</name>
+				<specializationchoice type="number">0</specializationchoice>
+				<text type="formattedtext">
+					<p>As a student of arcane magic, you have a spellbook containing spells that show the first glimmerings of your true power.</p>
+					<linklist>
+						<link class="class_spell_view" recordname="class_spell_view.wizard@DD Tashas Cauldron of Everything - Players">Wizards Spells</link>
+						<link class="class_spell_view" recordname="class_spell_view.wizardnew@DD Tashas Cauldron of Everything - Players">Wizard Spells (New)</link>
+					</linklist>
+					<p>
+						<b>Cantrips</b>
+					</p>
+					<p>At 1st level, you know three cantrips of your choice from the wizard spell list. You learn additional wizard cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Wizard table.</p>
+					<p>
+						<b>Spellbook</b>
+					</p>
+					<p>At 1st level, you have a spellbook containing six 1st-level wizard spells of your choice. Your spellbook is the repository of the wizard spells you know, except your cantrips, which are fixed in your mind.</p>
+					<p>
+						<b>Preparing and Casting Spells</b>
+					</p>
+					<p>The Wizard table shows how many spell slots you have to cast your spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest.</p>
+					<p>You prepare the list of wizard spells that are available for you to cast. To do so, choose a number of wizard spells from your spellbook equal to your Intelligence modifier + your wizard level (minimum of one spell). The spells must be of a level for which you have spell slots.</p>
+					<p>For example, if you're a 3rd-level wizard, you have four 1st-level and two 2nd-level spell slots. With an Intelligence of 16, your list of prepared spells can include six spells of 1st or 2nd level, in any combination, chosen from your spellbook. If you prepare the 1st-level spell magic missile, you can cast it using a 1st-level or a 2nd-level slot. Casting the spell doesn't remove it from your list of prepared spells.</p>
+					<p>You can change your list of prepared spells when you finish a long rest. Preparing a new list of wizard spells requires time spent studying your spellbook and memorizing the incantations and gestures you must make to cast the spell: at least 1 minute per spell level for each spell on your list.</p>
+					<p>
+						<b>Spellcasting Ability</b>
+					</p>
+					<p>Intelligence is your spellcasting ability for your wizard spells, since you learn your spells through dedicated study and memorization. You use your Intelligence whenever a spell refers to your spellcasting ability.</p>
+					<p>In addition, you use your Intelligence modifier when setting the saving throw DC for a wizard spell you cast and when making an attack roll with one.</p>
+					<p>
+						<b>Spell save DC </b>= 8 + your proficiency bonus + your Intelligence modifier</p>
+					<p>
+						<b>Spell attack modifier </b>= your proficiency bonus + your Intelligence modifier</p>
+					<p>
+						<b>Ritual Casting</b>
+					</p>
+					<p>You can cast a wizard spell as a ritual if that spell has the ritual tag and you have the spell in your spellbook. You don't need to have the spell prepared.</p>
+					<p>
+						<b>Spellcasting Focus</b>
+					</p>
+					<p>You can use an arcane focus as a spellcasting focus for your wizard spells.</p>
+					<p>
+						<b>Learning Spells of 1st Level and Higher</b>
+					</p>
+					<p>Each time you gain a wizard level, you can add two wizard spells of your choice to your spellbook. Each of these spells must be of a level for which you have spell slots, as shown on the Wizard table. On your adventures, you might find other spells that you can add to your spellbook (see the &#34;Your Spellbook&#34; sidebar).</p>
+					<h>Your Spellbook</h>
+					<p>The spells that you add to your spellbook as you gain levels reflect the arcane research you conduct on your own, as well as intellectual breakthroughs you have had about the nature of the multiverse. You might find other spells during your adventures. You could discover a spell recorded on a scroll in an evil wizard's chest, for example, or in a dusty tome in an ancient library.</p>
+					<p>
+						<b>
+							<i>Copying a Spell into the book. </i>
+						</b>When you find a wizard spell of 1st level or higher, you can add it to your spellbook if it is of a level for which you have spell slots and if you can spare the time to decipher and copy it. The spells copied into a spellbook must be of a spell level the wizard can prepare.</p>
+					<p>Copying a spell into your spellbook involves reproducing the basic form of the spell, then deciphering the unique system of notation used by the wizard who wrote it. You must practice the spell until you understand the sounds or gestures required, then transcribe it into your spellbook using your own notation.</p>
+					<p>For each level of the spell, the process takes 2 hours and costs 50gp. The cost represents material components you expend as you experiment with the spell to master it, as well as the fine inks you need to record it. Once you have spent this time and money, you can prepare the spell just like your other spells.</p>
+					<p>
+						<b>
+							<i>Replacing the Book. </i>
+						</b>You can copy a spell from your own spellbook into another book-for example, if you want to make a backup copy of your spellbook. This is just like copying a new spell into your spellbook, but faster and easier, since you understand your own notation and already know how to cast the spell. You need spend only 1 hour and 10 gp for each level of the copied spell. If you lose your spellbook, you can use the same procedure to transcribe the spells that you have prepared into a new spellbook. Filling out the remainder of your spellbook requires you to find new spells to do so, as normal. For this reason, many wizards keep backup spellbooks in a safe place.</p>
+					<p>
+						<b>
+							<i>The Book's Appearance </i>
+						</b>Your spellbook is a unique compilation of spells, with its own decorative flourishes and margin notes. It might be a plain, functional leather volume that you received as a gift from your master, a finely bound gilt-edged tome you found in an ancient library, or even a loose collection of notes scrounged together after you lost your previous spellbook in a mishap.</p>
+				</text>
+			</id-00004>
+		</featurelist>
+		<hp>
+			<temporary type="number">0</temporary>
+			<total type="number">9</total>
+			<wounds type="number">0</wounds>
+		</hp>
+		<initiative>
+			<misc type="number">0</misc>
+			<prof type="number">0</prof>
+			<temporary type="number">0</temporary>
+			<total type="number">1</total>
+		</initiative>
+		<inventorylist>
+			<id-00001>
+				<attune type="number">0</attune>
+				<carried type="number">1</carried>
+				<cost type="string">50 gp</cost>
+				<count type="number">1</count>
+				<description type="formattedtext">
+					<p>Essential for wizards, a spellbook is a leather-bound tome with 100 blank vellum pages suitable for recording spells.</p>
+				</description>
+				<locked type="number">1</locked>
+				<name type="string">Spellbook</name>
+				<subtype type="string">Standard</subtype>
+				<type type="string">Adventuring Gear</type>
+				<weight type="number">3</weight>
+			</id-00001>
+			<id-00002>
+				<attune type="number">0</attune>
+				<carried type="number">1</carried>
+				<cost type="string">25 gp</cost>
+				<count type="number">1</count>
+				<description type="formattedtext">
+					<p>A component pouch is a small, watertight leather belt pouch that has compartments to hold all the material components and other special items you need to cast your spells, except for those components that have a specific cost (as indicated in a spell's description).</p>
+				</description>
+				<locked type="number">1</locked>
+				<name type="string">Component Pouch</name>
+				<subtype type="string">Standard</subtype>
+				<type type="string">Adventuring Gear</type>
+				<weight type="number">2</weight>
+			</id-00002>
+			<id-00003>
+				<attune type="number">0</attune>
+				<carried type="number">1</carried>
+				<cost type="string">2 gp</cost>
+				<count type="number">1</count>
+				<description type="formattedtext">
+					<p>A backpack holds 1 cubic foot/30 lbs. of gear. You can also strap items such as a bedroll or coil of rope to the outside of a backpack.</p>
+				</description>
+				<locked type="number">1</locked>
+				<name type="string">Backpack</name>
+				<subtype type="string">Standard</subtype>
+				<type type="string">Adventuring Gear</type>
+				<weight type="number">5</weight>
+			</id-00003>
+			<id-00004>
+				<attune type="number">0</attune>
+				<carried type="number">1</carried>
+				<cost type="string">1 gp</cost>
+				<count type="number">1</count>
+				<description type="formattedtext" />
+				<locked type="number">1</locked>
+				<name type="string">Bedroll</name>
+				<subtype type="string">Standard</subtype>
+				<type type="string">Adventuring Gear</type>
+				<weight type="number">7</weight>
+			</id-00004>
+			<id-00005>
+				<attune type="number">0</attune>
+				<carried type="number">1</carried>
+				<cost type="string">2 sp</cost>
+				<count type="number">1</count>
+				<description type="formattedtext">
+					<p>This tin box contains a cup and simple cutlery. The box clamps together, and one side can be used as a cooking pan and the other as a plate or shallow bowl.</p>
+				</description>
+				<locked type="number">1</locked>
+				<name type="string">Mess Kit</name>
+				<subtype type="string">Equipment Kits</subtype>
+				<type type="string">Adventuring Gear</type>
+				<weight type="number">1</weight>
+			</id-00005>
+			<id-00006>
+				<attune type="number">0</attune>
+				<carried type="number">1</carried>
+				<cost type="string">5 sp</cost>
+				<count type="number">10</count>
+				<description type="formattedtext">
+					<p>Rations consist of dry foods suitable for extended travel, including jerky, dried fruit, hardtack, and nuts.</p>
+				</description>
+				<locked type="number">1</locked>
+				<name type="string">Rations (1 Day)</name>
+				<subtype type="string">Standard</subtype>
+				<type type="string">Adventuring Gear</type>
+				<weight type="number">2</weight>
+			</id-00006>
+			<id-00007>
+				<attune type="number">0</attune>
+				<carried type="number">1</carried>
+				<cost type="string">1 gp</cost>
+				<count type="number">1</count>
+				<description type="formattedtext">
+					<p>Rope, made of hemp, has 2 hit points and can be burst with a DC 17 Strength check. There is 50 feet in this coil.</p>
+				</description>
+				<locked type="number">1</locked>
+				<name type="string">Rope, Hempen</name>
+				<subtype type="string">Standard</subtype>
+				<type type="string">Adventuring Gear</type>
+				<weight type="number">10</weight>
+			</id-00007>
+			<id-00008>
+				<attune type="number">0</attune>
+				<carried type="number">1</carried>
+				<cost type="string">5 sp</cost>
+				<count type="number">1</count>
+				<description type="formattedtext">
+					<p>This small container holds flint, fire steel, and tinder (usually dry cloth soaked in light oil) used to kindle a fire. Using it to light a torch-or anything else with abundant, exposed fuel-takes an action. Lighting any other fire takes 1 minute.</p>
+				</description>
+				<locked type="number">1</locked>
+				<name type="string">Tinderbox</name>
+				<subtype type="string">Standard</subtype>
+				<type type="string">Adventuring Gear</type>
+				<weight type="number">1</weight>
+			</id-00008>
+			<id-00009>
+				<attune type="number">0</attune>
+				<carried type="number">1</carried>
+				<cost type="string">1 cp</cost>
+				<count type="number">10</count>
+				<description type="formattedtext">
+					<p>A torch burns for 1 hour, providing bright light in a 20-foot radius and dim light for an additional 20 feet. If you make a melee attack with a burning torch and hit, it deals 1 fire damage.</p>
+				</description>
+				<locked type="number">1</locked>
+				<name type="string">Torch</name>
+				<subtype type="string">Standard</subtype>
+				<type type="string">Adventuring Gear</type>
+				<weight type="number">1</weight>
+			</id-00009>
+			<id-00010>
+				<attune type="number">0</attune>
+				<carried type="number">1</carried>
+				<cost type="string">2 sp</cost>
+				<count type="number">1</count>
+				<description type="formattedtext">
+					<p>A waterskin holds 4 pints of liquid.</p>
+				</description>
+				<locked type="number">1</locked>
+				<name type="string">Waterskin</name>
+				<subtype type="string">Standard</subtype>
+				<type type="string">Adventuring Gear</type>
+				<weight type="number">5</weight>
+			</id-00010>
+			<id-00011>
+				<attune type="number">0</attune>
+				<bonus type="number">0</bonus>
+				<carried type="number">2</carried>
+				<cost type="string">2 sp</cost>
+				<count type="number">1</count>
+				<damage type="string">1d6  bludgeoning</damage>
+				<description type="formattedtext" />
+				<locked type="number">1</locked>
+				<name type="string">Quarterstaff</name>
+				<properties type="string">Versatile (1d8)</properties>
+				<subtype type="string">Simple Melee Weapons</subtype>
+				<type type="string">Weapon</type>
+				<weight type="number">4</weight>
+			</id-00011>
+			<id-00012>
+				<attune type="number">0</attune>
+				<carried type="number">1</carried>
+				<cost type="string">15 gp</cost>
+				<count type="number">1</count>
+				<description type="formattedtext" />
+				<locked type="number">1</locked>
+				<name type="string">Clothes, Fine</name>
+				<subtype type="string">Standard</subtype>
+				<type type="string">Adventuring Gear</type>
+				<weight type="number">6</weight>
+			</id-00012>
+			<id-00013>
+				<attune type="number">0</attune>
+				<carried type="number">1</carried>
+				<cost type="string">25 gp</cost>
+				<count type="number">1</count>
+				<description type="formattedtext">
+					<p>The perfect tool for anyone who wants to engage in trickery, a disguise kit enables its owner to adopt a false identity. A disguise kit includes cosmetics, hair dye, small props, and a few pieces of clothing.</p>
+				</description>
+				<locked type="number">1</locked>
+				<name type="string">Disguise Kit</name>
+				<subtype type="string">Kits / Sets</subtype>
+				<type type="string">Tools</type>
+				<weight type="number">3</weight>
+			</id-00013>
+			<id-00014>
+				<attune type="number">0</attune>
+				<carried type="number">1</carried>
+				<cost type="string">5 sp</cost>
+				<count type="number">1</count>
+				<description type="formattedtext">
+					<p>A cloth or leather pouch can hold up to 20 sling bullets or 50 blowgun needles, among other things. A compartmentalized pouch for holding spell components is called a component pouch (described earlier in this section).</p>
+					<p>A pouch holds 1/5 cubic foot/6 pounds of gear</p>
+				</description>
+				<locked type="number">1</locked>
+				<name type="string">Pouch</name>
+				<subtype type="string">Standard</subtype>
+				<type type="string">Adventuring Gear</type>
+				<weight type="number">1</weight>
+			</id-00014>
+		</inventorylist>
+		<languagelist>
+			<id-00001>
+				<name type="string">Common</name>
+			</id-00001>
+			<id-00002>
+				<name type="string">Halfling</name>
+			</id-00002>
+			<id-00003>
+				<name type="string">Common </name>
+			</id-00003>
+			<id-00004>
+				<name type="string">Choice</name>
+			</id-00004>
+		</languagelist>
+		<level type="number">1</level>
+		<locked type="number">0</locked>
+		<name type="string">Charlemagne Trefóil</name>
+		<notes type="string">Ivar Baran ist sein wirklicher Name, Charlemagne Trefóil ist seine falsche Identität aus dem Charlatan-Background.</notes>
+		<perception type="number">10</perception>
+		<perceptionmodifier type="number">0</perceptionmodifier>
+		<portrait type="token">portraits/Wengelyn.png</portrait>
+		<powergroup>
+			<id-00001>
+				<atkmod type="number">0</atkmod>
+				<atkprof type="number">1</atkprof>
+				<castertype type="string">memorization</castertype>
+				<name type="string">Spells (Wizard)</name>
+				<prepared type="number">1</prepared>
+				<savemod type="number">0</savemod>
+				<saveprof type="number">1</saveprof>
+				<stat type="string">intelligence</stat>
+				<uses type="number">0</uses>
+			</id-00001>
+			<id-00002>
+				<name type="string">Class (Wizard)</name>
+			</id-00002>
+		</powergroup>
+		<powermeta>
+			<pactmagicslots1>
+				<max type="number">0</max>
+			</pactmagicslots1>
+			<pactmagicslots2>
+				<max type="number">0</max>
+			</pactmagicslots2>
+			<pactmagicslots3>
+				<max type="number">0</max>
+			</pactmagicslots3>
+			<pactmagicslots4>
+				<max type="number">0</max>
+			</pactmagicslots4>
+			<pactmagicslots5>
+				<max type="number">0</max>
+			</pactmagicslots5>
+			<pactmagicslots6>
+				<max type="number">0</max>
+			</pactmagicslots6>
+			<pactmagicslots7>
+				<max type="number">0</max>
+			</pactmagicslots7>
+			<pactmagicslots8>
+				<max type="number">0</max>
+			</pactmagicslots8>
+			<pactmagicslots9>
+				<max type="number">0</max>
+			</pactmagicslots9>
+			<spellslots1>
+				<max type="number">2</max>
+				<used type="number">0</used>
+			</spellslots1>
+			<spellslots2>
+				<max type="number">0</max>
+			</spellslots2>
+			<spellslots3>
+				<max type="number">0</max>
+			</spellslots3>
+			<spellslots4>
+				<max type="number">0</max>
+			</spellslots4>
+			<spellslots5>
+				<max type="number">0</max>
+			</spellslots5>
+			<spellslots6>
+				<max type="number">0</max>
+			</spellslots6>
+			<spellslots7>
+				<max type="number">0</max>
+			</spellslots7>
+			<spellslots8>
+				<max type="number">0</max>
+			</spellslots8>
+			<spellslots9>
+				<max type="number">0</max>
+			</spellslots9>
+		</powermeta>
+		<powers>
+			<id-00001>
+				<actions />
+				<cast type="number">0</cast>
+				<description type="formattedtext">
+					<p>You have learned to regain some of your magical energy by studying your spellbook. Once per day when you finish a short rest, you can choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your wizard level (rounded up), and none of the slots can be 6th level or higher.</p>
+					<p>For example, if you're a 4th-level wizard, you can recover up to two levels worth of spell slots. You can recover either a 2nd-level spell slot or two 1st-level spell slots.</p>
+				</description>
+				<group type="string">Class (Wizard)</group>
+				<level type="number">0</level>
+				<locked type="number">1</locked>
+				<name type="string">Arcane Recovery</name>
+				<prepared type="number">1</prepared>
+			</id-00001>
+			<id-00002>
+				<actions>
+					<id-00001>
+						<durmod type="number">1</durmod>
+						<durunit type="string">hour</durunit>
+						<label type="string">Prestidigitation</label>
+						<targeting type="string">self</targeting>
+						<type type="string">effect</type>
+					</id-00001>
+				</actions>
+				<castingtime type="string">1 action</castingtime>
+				<components type="string">V, S</components>
+				<description type="formattedtext">
+					<p>This spell is a minor magical trick that novice spellcasters use for practice. You create one of the following magical effects within range:</p>
+					<list>
+						<li>You create an instantaneous, harmless sensory effect, such as a shower of sparks, a puff of wind, faint musical notes, or an odd odor.</li>
+						<li>You instantaneously light or snuff out a candle, a torch, or a small campfire.</li>
+						<li>You instantaneously clean or soil an object no larger than 1 cubic foot.</li>
+						<li>You chill, warm, or flavor up to 1 cubic foot of nonliving material for 1 hour.</li>
+						<li>You make a color, a small mark, or a symbol appear on an object or a surface for 1 hour.</li>
+						<li>You create a nonmagical trinket or an illusory image that can fit in your hand and that lasts until the end of your next turn.</li>
+					</list>
+					<p>If you cast this spell multiple times, you can have up to three of its non-instantaneous effects active at a time, and you can dismiss such an effect as an action.</p>
+				</description>
+				<duration type="string">Up to 1 hour</duration>
+				<group type="string">Spells (Wizard)</group>
+				<level type="number">0</level>
+				<locked type="number">1</locked>
+				<name type="string">Prestidigitation</name>
+				<prepared type="number">1</prepared>
+				<range type="string">10 feet</range>
+				<school type="string">Transmutation</school>
+				<source type="string">Bard, Eldritch Knight, Sorcerer, Warlock, Wizard, Arcane Trickster</source>
+			</id-00002>
+			<id-00003>
+				<actions>
+					<id-00001>
+						<atktype type="string">ranged</atktype>
+						<type type="string">cast</type>
+					</id-00001>
+					<id-00002>
+						<damagelist>
+							<id-00001>
+								<bonus type="number">0</bonus>
+								<dice type="dice">d10</dice>
+								<type type="string">fire</type>
+							</id-00001>
+						</damagelist>
+						<type type="string">damage</type>
+					</id-00002>
+				</actions>
+				<castingtime type="string">1 action</castingtime>
+				<components type="string">V, S</components>
+				<description type="formattedtext">
+					<p>You hurl a mote of fire at a creature or object within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 fire damage. A flammable object hit by this spell ignites if it isn't being worn or carried.</p>
+					<p>This spell's damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10).</p>
+				</description>
+				<duration type="string">Instantaneous</duration>
+				<group type="string">Spells (Wizard)</group>
+				<level type="number">0</level>
+				<locked type="number">1</locked>
+				<name type="string">Fire Bolt</name>
+				<prepared type="number">1</prepared>
+				<range type="string">120 feet</range>
+				<school type="string">Evocation</school>
+				<source type="string">Eldritch Knight, Sorcerer, Wizard, Arcane Trickster</source>
+			</id-00003>
+			<id-00004>
+				<actions>
+					<id-00001>
+						<durmod type="number">1</durmod>
+						<label type="string">Message</label>
+						<targeting type="string">self</targeting>
+						<type type="string">effect</type>
+					</id-00001>
+				</actions>
+				<castingtime type="string">1 action</castingtime>
+				<components type="string">V, S, M (a short piece of copper wire)</components>
+				<description type="formattedtext">
+					<p>You point your finger toward a creature within range and whisper a message. The target (and only the target) hears the message and can reply in a whisper that only you can hear.</p>
+					<p>You can cast this spell through solid objects if you are familiar with the target and know it is beyond the barrier. Magical silence. 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood blocks the spell. The spell doesn't have to follow a straight line and can travel freely around corners or through openings.</p>
+				</description>
+				<duration type="string">1 round</duration>
+				<group type="string">Spells (Wizard)</group>
+				<level type="number">0</level>
+				<locked type="number">1</locked>
+				<name type="string">Message</name>
+				<prepared type="number">1</prepared>
+				<range type="string">120 feet</range>
+				<school type="string">Transmutation</school>
+				<source type="string">Bard, Eldritch Knight, Sorcerer, Wizard, Arcane Trickster</source>
+			</id-00004>
+			<id-00005>
+				<actions>
+					<id-00001>
+						<damagelist>
+							<id-00001>
+								<bonus type="number">1</bonus>
+								<dice type="dice">d4</dice>
+								<type type="string">force</type>
+							</id-00001>
+						</damagelist>
+						<type type="string">damage</type>
+					</id-00001>
+				</actions>
+				<castingtime type="string">1 action</castingtime>
+				<components type="string">V, S</components>
+				<description type="formattedtext">
+					<p>You create three glowing darts of magical force. Each dart hits a creature of your choice that you can see within range. A dart deals 1d4 + 1 force damage to its target. The darts all strike simultaneously, and you can direct them to hit one creature or several.</p>
+					<p>
+						<b>At Higher Levels. </b>When you cast this spell using a spell slot of 2nd level or higher, the spell creates one more dart for each slot level above 1st.</p>
+				</description>
+				<duration type="string">Instantaneous</duration>
+				<group type="string">Spells (Wizard)</group>
+				<level type="number">1</level>
+				<locked type="number">1</locked>
+				<name type="string">Magic Missile</name>
+				<prepared type="number">1</prepared>
+				<range type="string">120 feet</range>
+				<school type="string">Evocation</school>
+				<source type="string">Eldritch Knight, Sorcerer, Wizard, Arcane Trickster</source>
+			</id-00005>
+			<id-00006>
+				<actions>
+					<id-00001>
+						<durmod type="number">1</durmod>
+						<label type="string">AC: 5</label>
+						<targeting type="string">self</targeting>
+						<type type="string">effect</type>
+					</id-00001>
+				</actions>
+				<castingtime type="string">1 reaction, which you take when you are hit by an attack or targeted by the magic missile spell</castingtime>
+				<components type="string">V, S</components>
+				<description type="formattedtext">
+					<p>An invisible barrier of magical force appears and protects you. Until the start of your next turn, you have a +5 bonus to AC, including against the triggering attack, and you take no damage from magic missile.</p>
+				</description>
+				<duration type="string">1 round</duration>
+				<group type="string">Spells (Wizard)</group>
+				<level type="number">1</level>
+				<locked type="number">1</locked>
+				<name type="string">Shield</name>
+				<prepared type="number">1</prepared>
+				<range type="string">Self</range>
+				<school type="string">Abjuration</school>
+				<source type="string">Eldritch Knight, Sorcerer, Wizard, Arcane Trickster</source>
+			</id-00006>
+		</powers>
+		<profbonus type="number">2</profbonus>
+		<proficiencylist>
+			<id-00001>
+				<name type="string">Weapon: Daggers</name>
+			</id-00001>
+			<id-00002>
+				<name type="string">Weapon: Darts</name>
+			</id-00002>
+			<id-00003>
+				<name type="string">Weapon: Light crossbows</name>
+			</id-00003>
+			<id-00004>
+				<name type="string">Weapon: Quarterstaffs</name>
+			</id-00004>
+			<id-00005>
+				<name type="string">Weapon: Slings</name>
+			</id-00005>
+			<id-00006>
+				<name type="string">Tool: Disguise kit</name>
+			</id-00006>
+			<id-00007>
+				<name type="string">Tool: forgery kit</name>
+			</id-00007>
+		</proficiencylist>
+		<race type="string">Human-Variant</race>
+		<racelink type="windowreference">
+			<class>reference_race</class>
+			<recordname>reference.racedata.human_variant@DD PHB Deluxe</recordname>
+		</racelink>
+		<racename type="string">Human-Variant</racename>
+		<size type="string">Medium</size>
+		<skilllist>
+			<id-00001>
+				<misc type="number">0</misc>
+				<name type="string">Perception</name>
+				<prof type="number">0</prof>
+				<shortcut type="number">0</shortcut>
+				<stat type="string">wisdom</stat>
+				<total type="number">0</total>
+			</id-00001>
+			<id-00002>
+				<misc type="number">0</misc>
+				<name type="string">Arcana</name>
+				<prof type="number">1</prof>
+				<shortcut type="number">0</shortcut>
+				<stat type="string">intelligence</stat>
+				<total type="number">5</total>
+			</id-00002>
+			<id-00003>
+				<misc type="number">0</misc>
+				<name type="string">Deception</name>
+				<prof type="number">1</prof>
+				<shortcut type="number">0</shortcut>
+				<stat type="string">charisma</stat>
+				<total type="number">3</total>
+			</id-00003>
+			<id-00004>
+				<misc type="number">0</misc>
+				<name type="string">History</name>
+				<prof type="number">1</prof>
+				<shortcut type="number">0</shortcut>
+				<stat type="string">intelligence</stat>
+				<total type="number">5</total>
+			</id-00004>
+			<id-00005>
+				<misc type="number">0</misc>
+				<name type="string">Persuasion</name>
+				<prof type="number">1</prof>
+				<shortcut type="number">0</shortcut>
+				<stat type="string">charisma</stat>
+				<total type="number">3</total>
+			</id-00005>
+			<id-00006>
+				<misc type="number">0</misc>
+				<name type="string">Sleight of Hand</name>
+				<prof type="number">1</prof>
+				<shortcut type="number">0</shortcut>
+				<stat type="string">dexterity</stat>
+				<total type="number">3</total>
+			</id-00006>
+			<id-00007>
+				<misc type="number">0</misc>
+				<name type="string">Nature</name>
+				<prof type="number">0</prof>
+				<shortcut type="number">0</shortcut>
+				<stat type="string">intelligence</stat>
+				<total type="number">3</total>
+			</id-00007>
+			<id-00008>
+				<misc type="number">0</misc>
+				<name type="string">Medicine</name>
+				<prof type="number">0</prof>
+				<shortcut type="number">0</shortcut>
+				<stat type="string">wisdom</stat>
+				<total type="number">0</total>
+			</id-00008>
+			<id-00009>
+				<misc type="number">0</misc>
+				<name type="string">Survival</name>
+				<prof type="number">0</prof>
+				<shortcut type="number">0</shortcut>
+				<stat type="string">wisdom</stat>
+				<total type="number">0</total>
+			</id-00009>
+			<id-00010>
+				<misc type="number">0</misc>
+				<name type="string">Performance</name>
+				<prof type="number">0</prof>
+				<shortcut type="number">0</shortcut>
+				<stat type="string">charisma</stat>
+				<total type="number">1</total>
+			</id-00010>
+			<id-00011>
+				<misc type="number">0</misc>
+				<name type="string">Acrobatics</name>
+				<prof type="number">0</prof>
+				<shortcut type="number">0</shortcut>
+				<stat type="string">dexterity</stat>
+				<total type="number">1</total>
+			</id-00011>
+			<id-00012>
+				<misc type="number">0</misc>
+				<name type="string">Religion</name>
+				<prof type="number">0</prof>
+				<shortcut type="number">0</shortcut>
+				<stat type="string">intelligence</stat>
+				<total type="number">3</total>
+			</id-00012>
+			<id-00013>
+				<misc type="number">0</misc>
+				<name type="string">Athletics</name>
+				<prof type="number">0</prof>
+				<shortcut type="number">0</shortcut>
+				<stat type="string">strength</stat>
+				<total type="number">-1</total>
+			</id-00013>
+			<id-00014>
+				<misc type="number">0</misc>
+				<name type="string">Insight</name>
+				<prof type="number">0</prof>
+				<shortcut type="number">0</shortcut>
+				<stat type="string">wisdom</stat>
+				<total type="number">0</total>
+			</id-00014>
+			<id-00015>
+				<misc type="number">0</misc>
+				<name type="string">Intimidation</name>
+				<prof type="number">0</prof>
+				<shortcut type="number">0</shortcut>
+				<stat type="string">charisma</stat>
+				<total type="number">1</total>
+			</id-00015>
+			<id-00016>
+				<misc type="number">0</misc>
+				<name type="string">Investigation</name>
+				<prof type="number">0</prof>
+				<shortcut type="number">0</shortcut>
+				<stat type="string">intelligence</stat>
+				<total type="number">3</total>
+			</id-00016>
+			<id-00017>
+				<misc type="number">0</misc>
+				<name type="string">Stealth</name>
+				<prof type="number">0</prof>
+				<shortcut type="number">0</shortcut>
+				<stat type="string">dexterity</stat>
+				<total type="number">1</total>
+			</id-00017>
+			<id-00018>
+				<misc type="number">0</misc>
+				<name type="string">Animal Handling</name>
+				<prof type="number">0</prof>
+				<shortcut type="number">0</shortcut>
+				<stat type="string">wisdom</stat>
+				<total type="number">0</total>
+			</id-00018>
+		</skilllist>
+		<speed>
+			<armor type="number">0</armor>
+			<base type="number">30</base>
+			<misc type="number">0</misc>
+			<temporary type="number">0</temporary>
+			<total type="number">30</total>
+		</speed>
+		<subracelink type="windowreference">
+			<class />
+			<recordname />
+		</subracelink>
+		<temp />
+		<token type="token">portrait_id-00001_token</token>
+		<token3Dflat type="token"></token3Dflat>
+		<traitlist>
+			<id-00001>
+				<locked type="number">1</locked>
+				<name type="string">Feat</name>
+				<text type="formattedtext">
+					<p>You gain one feat of your choice.</p>
+				</text>
+			</id-00001>
+			<id-00002>
+				<locked type="number">1</locked>
+				<name type="string">Skills</name>
+				<text type="formattedtext">
+					<p>You gain proficiency in one skill of your choice.</p>
+				</text>
+			</id-00002>
+		</traitlist>
+		<weaponlist>
+			<id-00001>
+				<attackbonus type="number">0</attackbonus>
+				<carried type="number">2</carried>
+				<damagelist>
+					<id-00001>
+						<bonus type="number">0</bonus>
+						<dice type="dice">d6</dice>
+						<stat type="string">base</stat>
+						<type type="string">bludgeoning</type>
+					</id-00001>
+				</damagelist>
+				<handling type="number">0</handling>
+				<isidentified type="number">1</isidentified>
+				<name type="string">Quarterstaff</name>
+				<properties type="string">Versatile (1d8)</properties>
+				<shortcut type="windowreference">
+					<class>item</class>
+					<recordname>....inventorylist.id-00011</recordname>
+				</shortcut>
+				<type type="number">0</type>
+			</id-00001>
+		</weaponlist>
+	</character>
+</root>

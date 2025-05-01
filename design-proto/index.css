@@ -1,0 +1,976 @@
+@font-face {
+  font-family: "Alegreya Sans";
+  src: url("fonts/AlegreyaSans-Regular.woff2") format("woff2");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Alegreya Sans";
+  src: url("fonts/AlegreyaSans-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Alegreya Sans";
+  src: url("fonts/AlegreyaSans-Bold.woff2") format("woff2");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Alegreya Sans";
+  src: url("fonts/AlegreyaSans-BoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Alegreya Sans";
+  src: url("fonts/AlegreyaSans-Black.woff2") format("woff2");
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: "Alegreya Sans";
+  src: url("fonts/AlegreyaSans-BlackItalic.woff2") format("woff2");
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Alegreya Sans";
+  src: url("fonts/AlegreyaSans-Light.woff2") format("woff2");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Alegreya Sans";
+  src: url("fonts/AlegreyaSans-LightItalic.woff2") format("woff2");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Alegreya Sans";
+  src: url("fonts/AlegreyaSans-Thin.woff2") format("woff2");
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "Alegreya Sans";
+  src: url("fonts/AlegreyaSans-ThinItalic.woff2") format("woff2");
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Alegreya Sans SC";
+  src: url("fonts/AlegreyaSansSC-Regular.woff2") format("woff2");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Alegreya Sans SC";
+  src: url("fonts/AlegreyaSansSC-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Alegreya Sans SC";
+  src: url("fonts/AlegreyaSansSC-Bold.woff2") format("woff2");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Alegreya Sans SC";
+  src: url("fonts/AlegreyaSansSC-BoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Alegreya Sans SC";
+  src: url("fonts/AlegreyaSansSC-Black.woff2") format("woff2");
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: "Alegreya Sans SC";
+  src: url("fonts/AlegreyaSansSC-BlackItalic.woff2") format("woff2");
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Alegreya Sans SC";
+  src: url("fonts/AlegreyaSansSC-Light.woff2") format("woff2");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Alegreya Sans SC";
+  src: url("fonts/AlegreyaSansSC-LightItalic.woff2") format("woff2");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Alegreya Sans SC";
+  src: url("fonts/AlegreyaSansSC-Thin.woff2") format("woff2");
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "Alegreya Sans SC";
+  src: url("fonts/AlegreyaSansSC-ThinItalic.woff2") format("woff2");
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: NodestoCaps;
+  src: url("https://res.cloudinary.com/realm15/raw/upload/v1615342826/Nodesto_Caps_Condensed_nf6dds.otf")
+    format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: ScalySans;
+  src: url("https://res.cloudinary.com/realm15/raw/upload/v1628999877/Fonts/Scaly_Sans_pvgpbd.otf")
+    format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: ScalySansBold;
+  src: url("https://res.cloudinary.com/realm15/raw/upload/v1628999876/Fonts/Scaly_Sans_Bold_n3k8pt.otf")
+    format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  font-family: "Alegreya Sans", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  padding: 0;
+  background-color: #878787;
+}
+
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+@media print {
+  body {
+    background-color: white;
+  }
+  .page {
+    margin: 0 !important;
+  }
+}
+
+.page {
+  background-color: white !important;
+  height: 279.4mm;
+  width: 215.9mm;
+  margin: 0.5cm auto;
+  box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.1);
+  -webkit-print-color-adjust: exact;
+  text-rendering: optimizeLegibility;
+  page-break-before: always;
+  page-break-after: always;
+  overflow: hidden;
+}
+
+.fileSelect {
+  padding-top: 64px;
+  background-image: url("https://res.cloudinary.com/realm15/image/upload/v1629922000/Extra/FG_Background_l85oxc.jpg");
+  height: 100%;
+}
+
+.title {
+  font-family: NodestoCaps;
+  font-size: 64px;
+  color: #ffffff;
+  text-shadow: 2px 2px 5px #000000, -2px 2px 5px #000000, 2px -2px 5px #000000,
+    -2px -2px 5px #000000;
+}
+
+.subtitle {
+  font-family: ScalySansBold;
+  font-size: 24px;
+  color: white;
+}
+
+button,
+input[type="file"]::file-selector-button {
+  font-family: ScalySansBold;
+  font-size: 18px;
+  color: black;
+  background-color: white;
+  height: 48px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border: 1px solid #272727;
+  border-radius: 8px;
+}
+
+button:hover,
+input[type="file"]::file-selector-button:hover {
+  background-color: #dbdbdb;
+}
+
+select {
+  font-family: ScalySansBold;
+  font-size: 18px;
+  height: 32px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border: 1px solid #272727;
+  border-radius: 8px;
+}
+
+label {
+  font-family: ScalySansBold;
+  font-size: 18px;
+  color: white;
+}
+
+input {
+  font-family: ScalySansBold;
+  font-size: 18px;
+}
+
+.characterContainer {
+  padding: 30px;
+}
+
+.mainPage {
+  padding: 30px;
+  height: 94%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  margin-bottom: 16px;
+}
+
+.headerInfo {
+  width: 80%;
+}
+
+.name {
+  font-size: 24px;
+  font-weight: bold;
+  align-self: flex-start;
+  width: 20%;
+}
+
+.experience {
+  margin-left: 50px;
+  margin-right: 16px;
+  margin-top: 8px;
+}
+
+.info {
+  margin-top: 8px;
+  margin-left: 50px;
+}
+
+.infoRow {
+  display: flex;
+}
+
+.infoContainer {
+  margin-right: 16px;
+  width: 25%;
+  flex-direction: column-reverse;
+  display: flex;
+}
+
+.infoValue {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-end;
+}
+
+.label {
+  font-size: 14px;
+  color: #8c8c8c;
+  border-top: 1px solid #8c8c8c;
+  margin-top: 2px;
+}
+
+.columns {
+  display: flex;
+  /* margin-left: 70px; */
+}
+
+.stats {
+  background-color: #c9c7c7;
+  border-radius: 8px;
+  width: 100px;
+  padding: 28px 16px 0px;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.statLabel {
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.stat {
+  background-color: #fff;
+  height: 77px;
+  padding-top: 8px;
+  border: 1px solid #000;
+  border-radius: 8px;
+  width: 85px;
+  margin-bottom: 28px;
+}
+
+.statValue {
+  font-size: 32px;
+}
+
+.proficiencies {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  margin-left: 32px;
+}
+
+.dccProficienciesCol {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 48px 0 32px;
+}
+
+.dccProficiencies {
+  margin-left: 32px;
+  margin-bottom: 16px;
+  border: 1px solid #000;
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  width: 100%;
+}
+
+.dccProficiency {
+  margin-bottom: 8px;
+}
+
+.profBonusContainer {
+  display: flex;
+  width: 300px;
+}
+
+.profBonusValue {
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  font-size: 24px;
+  border: 1px solid #000;
+  align-self: flex-start;
+  line-height: 48px;
+}
+
+.profBonusLabel {
+  text-transform: uppercase;
+  width: 137px;
+  font-weight: bold;
+  font-size: 10px;
+  border-top: 1px;
+  border-right: 1px;
+  border-bottom: 1px;
+  border-left: 0;
+  border-style: solid;
+  border-color: #000;
+  padding: 4px 16px;
+  height: 24px;
+  margin-top: 8px;
+  line-height: 24px;
+  transform: translateX(-6px);
+}
+
+.bonuses {
+  margin-top: 16px;
+  border: 1px solid #000;
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  width: 200px;
+}
+
+.dccSaves {
+  margin-top: 16px;
+  border: 1px solid #000;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  width: 200px;
+  padding: 8px 18px;
+}
+
+.dccSkills {
+  margin-left: 32px;
+  margin-bottom: 16px;
+  border: 1px solid #000;
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  width: 100%;
+}
+
+.footnotes {
+  text-align: left;
+}
+
+.bonus {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.bonusNoProf {
+  height: 10px;
+  width: 10px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  margin-top: 3px;
+  margin-right: 8px;
+}
+
+.bonusProf {
+  height: 10px;
+  width: 10px;
+  border: 1px solid #000;
+  background-color: #000;
+  border-radius: 5px;
+  margin-top: 3px;
+  margin-right: 8px;
+}
+
+.bonusHalfProf {
+  height: 10px;
+  width: 10px;
+  border: 1px solid #000;
+  background-color: #a1a1a1;
+  border-radius: 5px;
+  margin-top: 3px;
+  margin-right: 8px;
+}
+
+.bonusDoubleProf {
+  height: 10px;
+  width: 10px;
+  border: 1px solid #000;
+  background-color: #ca0000;
+  border-radius: 5px;
+  margin-top: 3px;
+  margin-right: 8px;
+}
+
+.bonusValue {
+  margin-right: 8px;
+  border-bottom: 1px solid #000;
+  width: 28px;
+}
+
+.dccBonusValue {
+  margin-right: 8px;
+  border-bottom: 1px solid #000;
+  min-width: 28px;
+}
+
+.skillStat {
+  color: #8c8c8c;
+}
+
+.defences {
+  background-color: #c9c7c7;
+  border-radius: 8px;
+  width: 100%;
+  margin-left: 48px;
+  padding: 28px 18px 0px;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.dccDefences {
+  background-color: #c9c7c7;
+  border-radius: 8px;
+  width: 200px;
+  padding: 28px 18px;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.dccCombatBasics {
+  border-radius: 8px;
+  border: 1px solid #000;
+  width: 200px;
+  padding: 8px 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dccCombat {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 8px;
+}
+
+.dccCombatValue {
+  margin-left: 16px;
+  border-bottom: 1px solid black;
+  width: 75%;
+  text-align: center;
+  transform: translateY(-6px);
+}
+
+.dccCombatLabel {
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: bold;
+  width: 25%;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+}
+
+.acImage {
+  position: absolute;
+  height: 75px;
+  z-index: 0;
+}
+
+.acContainer {
+  z-index: 5;
+}
+
+.acValue {
+  width: 66px;
+  font-size: 32px;
+  margin-top: 10px;
+}
+
+.defenceContainer {
+  border: 1px solid #000;
+  width: 66px;
+  height: 66px;
+  border-radius: 8px;
+  margin-left: 40px;
+  margin-top: 4px;
+  background-color: #fff;
+}
+
+.defenceValue {
+  font-size: 32px;
+  margin-top: 10px;
+}
+
+.defenceLabel {
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.hitDieValue {
+  font-size: 24px;
+  margin-top: 18px;
+}
+
+.wideDefenceContainer {
+  background-color: #fff;
+  border: 1px solid #000;
+  height: 80px;
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 35px;
+}
+
+.deathSave {
+  text-transform: uppercase;
+  font-size: 10px;
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+
+.deathSaveContainer {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.deathSaveBubble {
+  height: 8px;
+  width: 8px;
+  border-radius: 4px;
+  border: 1px solid #000;
+  margin-left: 8px;
+}
+
+.deathSaveBubbleFilled {
+  height: 8px;
+  width: 8px;
+  border-radius: 4px;
+  border: 1px solid #000;
+  background-color: #000;
+  margin-left: 8px;
+}
+
+.d20 {
+  height: 40px;
+  margin-top: 8px;
+}
+
+.notInspired {
+  height: 40px;
+  margin-top: 7px;
+}
+
+.sensesList {
+  padding-top: 8px;
+}
+
+.sense {
+  margin-bottom: 8px;
+}
+
+.listSection {
+  border: 1px solid #000;
+  border-radius: 8px;
+  margin-top: 32px;
+  padding-bottom: 8px;
+}
+
+.listLabel {
+  font-variant: small-caps;
+  font-size: 16px;
+  font-weight: bold;
+  border-bottom: 1px solid #000;
+  padding-bottom: 8px;
+  margin-top: 8px;
+}
+
+.passivePerception {
+  font-size: 32px;
+  margin-top: 10px;
+  border-bottom: 1px solid #000;
+  padding-bottom: 8px;
+}
+
+.listLine {
+  border-bottom: 1px solid #c9c7c7;
+  padding: 4px 0;
+  font-size: 14px;
+  
+}
+
+.listLineEmpty {
+  border-bottom: 1px solid #c9c7c7;
+  padding: 4px 0;
+  height: 14px;
+}
+
+.slotList {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.slotList:first {
+  margin-left: 0px;
+}
+
+.slotList div {
+  display: flex;
+  align-items: center;
+  height: 20px;
+}
+
+.spellTitleLine {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.spellTitleLine span {
+  width: 100%;
+}
+
+.spellTitleLine .preparedState {
+  text-align: left;
+}
+
+.spellName {
+  font-variant: small-caps;
+  text-align: center;
+  display: inline;
+  vertical-align: middle;
+  line-height: 20px;
+}
+
+.spellSchool {
+  text-align: right;
+  color: gray;
+  font-style: italic;
+}
+
+.spellDescription {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 2px;
+}
+
+.spellDescription div {
+  display: flex;
+  align-items: center;
+  height: 20px;
+}
+
+.spellDescription svg {
+  margin-right: 5px;
+}
+
+.spellDescription div span {
+  line-height: 20px;
+  height: 20px;
+  display:inline-block;
+}
+
+.spellText {
+  padding: 0 5%;
+}
+
+.inventoryItem {
+  display: flex;
+  border-bottom: 1px solid #c9c7c7;
+  padding: 4px 0;
+  max-height: 20px;
+}
+
+.inventoryCount {
+  width: 3%;
+  border: 1px solid #c9c7c7;
+  border-radius: 4px;
+  padding: 0 4px;
+  margin-left: 16px;
+  margin-right: 18px;
+}
+
+.inventoryName {
+  width: 60%;
+  text-align: left;
+}
+
+.inventoryLocation {
+  width: 15%;
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.inventoryWeight {
+  width: 6%;
+  border: 1px solid #c9c7c7;
+  border-radius: 4px;
+  padding: 0 4px;
+  margin: 0 4px;
+}
+
+.inventoryNotEqipped {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  border: 1px solid #000;
+  align-self: center;
+  margin-left: 18px;
+}
+
+.inventoryEqipped {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  border: 1px solid #000;
+  background-color: #000;
+  align-self: center;
+  margin-left: 18px;
+}
+
+.inventoryHeader {
+  display: flex;
+  border-bottom: 1px solid #c9c7c7;
+  padding: 4px 0;
+}
+
+.inventoryHeaderName {
+  text-align: left;
+  width: 60%;
+  font-weight: bold;
+}
+
+.inventoryHeaderLocation {
+  width: 12%;
+  font-weight: bold;
+}
+
+.inventoryHeaderCount {
+  width: 9%;
+  font-weight: bold;
+}
+
+.inventoryIsEquipped {
+  width: 5%;
+  transform: translateX(-9px);
+  font-weight: bold;
+}
+
+.inventoryHeaderWeight {
+  width: 13%;
+  transform: translateX(2px);
+  font-weight: bold;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.treasureRow {
+  display: flex;
+  width: 100%;
+  margin-left: 135px;
+  padding-top: 8px;
+}
+
+.treasureLabel {
+  width: 10%;
+  text-align: right;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.treasureAmount {
+  width: 6%;
+  text-align: center;
+  border: 1px solid #c9c7c7;
+  border-radius: 4px;
+  margin-right: 8px;
+}
+
+.treasureEmpty {
+  width: 6%;
+  text-align: center;
+  margin-right: 8px;
+}
+
+.encLabel {
+  width: 20%;
+  text-align: right;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.encAmount {
+  width: 10%;
+  text-align: center;
+  border: 1px solid #c9c7c7;
+  border-radius: 4px;
+  margin-right: 8px;
+}
+
+.encRow {
+  display: flex;
+  width: 100%;
+  padding-top: 8px;
+}
+
+.detailsLabel {
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: bold;
+  align-content: center;
+  align-items: center;
+  align-self: center;
+  transform: translateY(1px);
+  margin-right: 8px;
+}
+
+.detailsRow {
+  display: flex;
+  width: 100%;
+  margin-left: 165px;
+  padding-top: 8px;
+}
+
+.detailsValue {
+  margin-right: 8px;
+  font-size: 14px;
+  align-content: center;
+  align-items: center;
+  align-self: center;
+}
+
+.footers {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  height: 100%;
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.row2 {
+  display: flex;
+}
+
+.mainRow {
+  border-radius: 8px;
+  border: 1px solid #000;
+  margin-top: 16px;
+  padding: 0px 16px 8px;
+  display: flex;
+  flex-direction: column;
+}

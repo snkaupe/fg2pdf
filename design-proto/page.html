@@ -1,0 +1,829 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Web site created using create-react-app">
+    <link rel="apple-touch-icon" href="/logo192.png">
+    <link rel="manifest" href="/manifest.json">
+    <title>Fantasy Grounds PDF Generator</title>
+    <link href="index.css" rel="stylesheet">
+    <link href="App.css" rel="stylesheet">
+</head>
+
+<body><noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+        <div class="App">
+            <div class="page">
+                <div class="mainPage">
+                    <div class="header">
+                        <div class="name">Charlemagne Trefóil</div>
+                        <div class="headerInfo">
+                            <div class="info">
+                                <div class="infoRow">
+                                    <div class="infoContainer">
+                                        <div class="infoValue">Wizard 1</div>
+                                    </div>
+                                    <div class="infoContainer">
+                                        <div class="infoValue">Human-Variant</div>
+                                    </div>
+                                    <div class="infoContainer">
+                                        <div class="infoValue">Charlatan</div>
+                                    </div>
+                                    <div class="infoContainer">
+                                        <div class="infoValue"></div>
+                                    </div>
+                                </div>
+                                <div class="infoRow">
+                                    <div class="infoContainer">
+                                        <div class="label">Class &amp; Level</div>
+                                    </div>
+                                    <div class="infoContainer">
+                                        <div class="label">Race</div>
+                                    </div>
+                                    <div class="infoContainer">
+                                        <div class="label">Background</div>
+                                    </div>
+                                    <div class="infoContainer">
+                                        <div class="label">Alignment</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="experience">
+                                <div class="infoValue">0 / 300</div>
+                                <div class="label">Experience</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="stats">
+                            <div class="stat">
+                                <div class="statLabel">strength</div>
+                                <div class="statValue">8</div>
+                                <div class="statBonus">-1</div>
+                            </div>
+                            <div class="stat">
+                                <div class="statLabel">dexterity</div>
+                                <div class="statValue">13</div>
+                                <div class="statBonus">+1</div>
+                            </div>
+                            <div class="stat">
+                                <div class="statLabel">constitution</div>
+                                <div class="statValue">16</div>
+                                <div class="statBonus">+3</div>
+                            </div>
+                            <div class="stat">
+                                <div class="statLabel">intelligence</div>
+                                <div class="statValue">16</div>
+                                <div class="statBonus">+3</div>
+                            </div>
+                            <div class="stat">
+                                <div class="statLabel">wisdom</div>
+                                <div class="statValue">10</div>
+                                <div class="statBonus">+0</div>
+                            </div>
+                            <div class="stat">
+                                <div class="statLabel">charisma</div>
+                                <div class="statValue">12</div>
+                                <div class="statBonus">+1</div>
+                            </div>
+                        </div>
+                        <div class="proficiencies">
+                            <div class="profBonusContainer">
+                                <div class="profBonusValue">2</div>
+                                <div class="profBonusLabel">Proficency Bonus</div>
+                            </div>
+                            <div class="bonuses">
+                                <div class="bonus">
+                                    <div class="bonusNoProf"></div>
+                                    <div class="bonusValue">-1</div>
+                                    <div class="bonusLabel">Strength</div>
+                                </div>
+                                <div class="bonus">
+                                    <div class="bonusNoProf"></div>
+                                    <div class="bonusValue">+1</div>
+                                    <div class="bonusLabel">Dexterity</div>
+                                </div>
+                                <div class="bonus">
+                                    <div class="bonusProf"></div>
+                                    <div class="bonusValue">+5</div>
+                                    <div class="bonusLabel">Constitution</div>
+                                </div>
+                                <div class="bonus">
+                                    <div class="bonusProf"></div>
+                                    <div class="bonusValue">+5</div>
+                                    <div class="bonusLabel">Intelligence</div>
+                                </div>
+                                <div class="bonus">
+                                    <div class="bonusProf"></div>
+                                    <div class="bonusValue">+2</div>
+                                    <div class="bonusLabel">Wisdom</div>
+                                </div>
+                                <div class="bonus">
+                                    <div class="bonusNoProf"></div>
+                                    <div class="bonusValue">+1</div>
+                                    <div class="bonusLabel">Charisma</div>
+                                </div>
+                                <div class="statLabel">Saving Throws</div>
+                            </div>
+                            <div class="bonuses">
+                                <div class="bonus">
+                                    <div class="bonusNoProf"></div>
+                                    <div class="bonusValue">+1</div>
+                                    <div class="bonusLabel">Acrobatics</div>
+                                    <div class="skillStat">&nbsp;(Dex)</div>
+                                </div>
+                                <div class="bonus">
+                                    <div class="bonusNoProf"></div>
+                                    <div class="bonusValue">+0</div>
+                                    <div class="bonusLabel">Animal Handling</div>
+                                    <div class="skillStat">&nbsp;(Wis)</div>
+                                </div>
+                                <div class="bonus">
+                                    <div class="bonusProf"></div>
+                                    <div class="bonusValue">+5</div>
+                                    <div class="bonusLabel">Arcana</div>
+                                    <div class="skillStat">&nbsp;(Int)</div>
+                                </div>
+                                <div class="bonus">
+                                    <div class="bonusNoProf"></div>
+                                    <div class="bonusValue">-1</div>
+                                    <div class="bonusLabel">Athletics</div>
+                                    <div class="skillStat">&nbsp;(Str)</div>
+                                </div>
+                                <div class="bonus">
+                                    <div class="bonusProf"></div>
+                                    <div class="bonusValue">+3</div>
+                                    <div class="bonusLabel">Deception</div>
+                                    <div class="skillStat">&nbsp;(Cha)</div>
+                                </div>
+                                <div class="bonus">
+                                    <div class="bonusProf"></div>
+                                    <div class="bonusValue">+5</div>
+                                    <div class="bonusLabel">History</div>
+                                    <div class="skillStat">&nbsp;(Int)</div>
+                                </div>
+                                <div class="bonus">
+                                    <div class="bonusNoProf"></div>
+                                    <div class="bonusValue">+0</div>
+                                    <div class="bonusLabel">Insight</div>
+                                    <div class="skillStat">&nbsp;(Wis)</div>
+                                </div>
+                                <div class="bonus">
+                                    <div class="bonusNoProf"></div>
+                                    <div class="bonusValue">+1</div>
+                                    <div class="bonusLabel">Intimidation</div>
+                                    <div class="skillStat">&nbsp;(Cha)</div>
+                                </div>
+                                <div class="bonus">
+                                    <div class="bonusNoProf"></div>
+                                    <div class="bonusValue">+3</div>
+                                    <div class="bonusLabel">Investigation</div>
+                                    <div class="skillStat">&nbsp;(Int)</div>
+                                </div>
+                                <div class="bonus">
+                                    <div class="bonusNoProf"></div>
+                                    <div class="bonusValue">+0</div>
+                                    <div class="bonusLabel">Medicine</div>
+                                    <div class="skillStat">&nbsp;(Wis)</div>
+                                </div>
+                                <div class="bonus">
+                                    <div class="bonusNoProf"></div>
+                                    <div class="bonusValue">+3</div>
+                                    <div class="bonusLabel">Nature</div>
+                                    <div class="skillStat">&nbsp;(Int)</div>
+                                </div>
+                                <div class="bonus">
+                                    <div class="bonusNoProf"></div>
+                                    <div class="bonusValue">+0</div>
+                                    <div class="bonusLabel">Perception</div>
+                                    <div class="skillStat">&nbsp;(Wis)</div>
+                                </div>
+                                <div class="bonus">
+                                    <div class="bonusNoProf"></div>
+                                    <div class="bonusValue">+1</div>
+                                    <div class="bonusLabel">Performance</div>
+                                    <div class="skillStat">&nbsp;(Cha)</div>
+                                </div>
+                                <div class="bonus">
+                                    <div class="bonusProf"></div>
+                                    <div class="bonusValue">+3</div>
+                                    <div class="bonusLabel">Persuasion</div>
+                                    <div class="skillStat">&nbsp;(Cha)</div>
+                                </div>
+                                <div class="bonus">
+                                    <div class="bonusNoProf"></div>
+                                    <div class="bonusValue">+3</div>
+                                    <div class="bonusLabel">Religion</div>
+                                    <div class="skillStat">&nbsp;(Int)</div>
+                                </div>
+                                <div class="bonus">
+                                    <div class="bonusProf"></div>
+                                    <div class="bonusValue">+3</div>
+                                    <div class="bonusLabel">Sleight of Hand</div>
+                                    <div class="skillStat">&nbsp;(Dex)</div>
+                                </div>
+                                <div class="bonus">
+                                    <div class="bonusNoProf"></div>
+                                    <div class="bonusValue">+1</div>
+                                    <div class="bonusLabel">Stealth</div>
+                                    <div class="skillStat">&nbsp;(Dex)</div>
+                                </div>
+                                <div class="bonus">
+                                    <div class="bonusNoProf"></div>
+                                    <div class="bonusValue">+0</div>
+                                    <div class="bonusLabel">Survival</div>
+                                    <div class="skillStat">&nbsp;(Wis)</div>
+                                </div>
+                                <div class="statLabel">Skills</div>
+                            </div>
+                        </div>
+                        <div class="defences">
+                            <div class="row2"><img class="acImage" src="/static/media/shield.59722e2c.svg" alt="ac">
+                                <div class="acContainer">
+                                    <div class="acValue">11</div>
+                                    <div class="statLabel">AC</div>
+                                </div>
+                                <div class="defenceContainer">
+                                    <div class="defenceValue">+1</div>
+                                    <div class="statLabel">Initiative</div>
+                                </div>
+                                <div class="defenceContainer">
+                                    <div class="defenceValue">30</div>
+                                    <div class="statLabel">Speed</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="wideDefenceContainer">
+                                    <div class="defenceValue">9 / 9</div>
+                                    <div class="defenceLabel">Hit Points</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="wideDefenceContainer">
+                                    <div class="defenceValue">0</div>
+                                    <div class="defenceLabel">Temporary Hit Points</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="wideDefenceContainer">
+                                    <div class="hitDieValue">1d6</div>
+                                    <div class="defenceLabel">Hit Dice</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="wideDefenceContainer">
+                                    <div class="deathSaveContainer">
+                                        <div class="deathSave">Successes<div class="deathSaveBubble"></div>
+                                            <div class="deathSaveBubble"></div>
+                                            <div class="deathSaveBubble"></div>
+                                        </div>
+                                        <div class="deathSave">Failures<div class="deathSaveBubble"></div>
+                                            <div class="deathSaveBubble"></div>
+                                            <div class="deathSaveBubble"></div>
+                                        </div>
+                                    </div>
+                                    <div class="defenceLabel">Death Saves</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="wideDefenceContainer">
+                                    <div class="notInspired"></div>
+                                    <div class="defenceLabel">Inspiration</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footers">
+                        <div class="rows">
+                            <div class="listSection">
+                                <div class="listLabel">Senses</div>
+                                <div class="sensesList">
+                                    <div class="sense">Passive Perception 10</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page">
+                <div class="characterContainer">
+                    <div class="header">
+                        <div class="name">Charlemagne Trefóil</div>
+                        <div class="headerInfo">
+                            <div class="info">
+                                <div class="infoRow">
+                                    <div class="infoContainer">
+                                        <div class="infoValue">Wizard 1</div>
+                                    </div>
+                                    <div class="infoContainer">
+                                        <div class="infoValue">Human-Variant</div>
+                                    </div>
+                                    <div class="infoContainer">
+                                        <div class="infoValue">Charlatan</div>
+                                    </div>
+                                    <div class="infoContainer">
+                                        <div class="infoValue"></div>
+                                    </div>
+                                </div>
+                                <div class="infoRow">
+                                    <div class="infoContainer">
+                                        <div class="label">Class &amp; Level</div>
+                                    </div>
+                                    <div class="infoContainer">
+                                        <div class="label">Race</div>
+                                    </div>
+                                    <div class="infoContainer">
+                                        <div class="label">Background</div>
+                                    </div>
+                                    <div class="infoContainer">
+                                        <div class="label">Alignment</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="experience">
+                                <div class="infoValue">0 / 300</div>
+                                <div class="label">Experience</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="listSection">
+                        <div class="listLabel">Feats</div>
+                        <div class="listLine">Resilient</div>
+                    </div>
+                    <div class="listSection">
+                        <div class="listLabel">Features</div>
+                        <div class="listLine">False Identity</div>
+                        <div class="listLine">Additional Wizard Spells (Option)</div>
+                        <div class="listLine">Arcane Recovery</div>
+                        <div class="listLine">Spellcasting</div>
+                    </div>
+                    <div class="listSection">
+                        <div class="listLabel">Traits</div>
+                        <div class="listLine">Feat</div>
+                        <div class="listLine">Skills</div>
+                    </div>
+                    <div class="listSection">
+                        <div class="listLabel">Proficiencies</div>
+                        <div class="listLine">Weapon: Daggers</div>
+                        <div class="listLine">Weapon: Darts</div>
+                        <div class="listLine">Weapon: Light crossbows</div>
+                        <div class="listLine">Weapon: Quarterstaffs</div>
+                        <div class="listLine">Weapon: Slings</div>
+                        <div class="listLine">Tool: Disguise kit</div>
+                        <div class="listLine">Tool: forgery kit</div>
+                    </div>
+                    <div class="listSection">
+                        <div class="listLabel">Languages</div>
+                        <div class="listLine">Common</div>
+                        <div class="listLine">Halfling</div>
+                        <div class="listLine">Common </div>
+                        <div class="listLine">Choice</div>
+                    </div>
+                </div>
+            </div>
+            <div class="page">
+                <div class="characterContainer">
+                    <div class="header">
+                        <div class="name">Charlemagne Trefóil</div>
+                        <div class="headerInfo">
+                            <div class="info">
+                                <div class="infoRow">
+                                    <div class="infoContainer">
+                                        <div class="infoValue">Wizard 1</div>
+                                    </div>
+                                    <div class="infoContainer">
+                                        <div class="infoValue">Human-Variant</div>
+                                    </div>
+                                    <div class="infoContainer">
+                                        <div class="infoValue">Charlatan</div>
+                                    </div>
+                                    <div class="infoContainer">
+                                        <div class="infoValue"></div>
+                                    </div>
+                                </div>
+                                <div class="infoRow">
+                                    <div class="infoContainer">
+                                        <div class="label">Class &amp; Level</div>
+                                    </div>
+                                    <div class="infoContainer">
+                                        <div class="label">Race</div>
+                                    </div>
+                                    <div class="infoContainer">
+                                        <div class="label">Background</div>
+                                    </div>
+                                    <div class="infoContainer">
+                                        <div class="label">Alignment</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="experience">
+                                <div class="infoValue">0 / 300</div>
+                                <div class="label">Experience</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="listSection">
+                        <div class="listLabel">Inventory</div>
+                        <div class="inventoryHeader">
+                            <div class="inventoryHeaderCount">Count</div>
+                            <div class="inventoryHeaderName">Name</div>
+                            <div class="inventoryHeaderLocation">Location</div>
+                            <div class="inventoryHeaderWeight">Weight</div>
+                            <div class="inventoryIsEquipped">Worn?</div>
+                        </div>
+                        <div class="inventoryItem">
+                            <div class="inventoryCount">1</div>
+                            <div class="inventoryName">Backpack</div>
+                            <div class="inventoryLocation"></div>
+                            <div class="inventoryWeight">5</div>
+                            <div class="inventoryNotEqipped"></div>
+                        </div>
+                        <div class="inventoryItem">
+                            <div class="inventoryCount">1</div>
+                            <div class="inventoryName">Bedroll</div>
+                            <div class="inventoryLocation"></div>
+                            <div class="inventoryWeight">7</div>
+                            <div class="inventoryNotEqipped"></div>
+                        </div>
+                        <div class="inventoryItem">
+                            <div class="inventoryCount">1</div>
+                            <div class="inventoryName">Clothes, Fine</div>
+                            <div class="inventoryLocation"></div>
+                            <div class="inventoryWeight">6</div>
+                            <div class="inventoryNotEqipped"></div>
+                        </div>
+                        <div class="inventoryItem">
+                            <div class="inventoryCount">1</div>
+                            <div class="inventoryName">Component Pouch</div>
+                            <div class="inventoryLocation"></div>
+                            <div class="inventoryWeight">2</div>
+                            <div class="inventoryNotEqipped"></div>
+                        </div>
+                        <div class="inventoryItem">
+                            <div class="inventoryCount">1</div>
+                            <div class="inventoryName">Disguise Kit</div>
+                            <div class="inventoryLocation"></div>
+                            <div class="inventoryWeight">3</div>
+                            <div class="inventoryNotEqipped"></div>
+                        </div>
+                        <div class="inventoryItem">
+                            <div class="inventoryCount">1</div>
+                            <div class="inventoryName">Mess Kit</div>
+                            <div class="inventoryLocation"></div>
+                            <div class="inventoryWeight">1</div>
+                            <div class="inventoryNotEqipped"></div>
+                        </div>
+                        <div class="inventoryItem">
+                            <div class="inventoryCount">1</div>
+                            <div class="inventoryName">Pouch</div>
+                            <div class="inventoryLocation"></div>
+                            <div class="inventoryWeight">1</div>
+                            <div class="inventoryNotEqipped"></div>
+                        </div>
+                        <div class="inventoryItem">
+                            <div class="inventoryCount">1</div>
+                            <div class="inventoryName">Quarterstaff</div>
+                            <div class="inventoryLocation"></div>
+                            <div class="inventoryWeight">4</div>
+                            <div class="inventoryEqipped"></div>
+                        </div>
+                        <div class="inventoryItem">
+                            <div class="inventoryCount">10</div>
+                            <div class="inventoryName">Rations (1 Day)</div>
+                            <div class="inventoryLocation"></div>
+                            <div class="inventoryWeight">2</div>
+                            <div class="inventoryNotEqipped"></div>
+                        </div>
+                        <div class="inventoryItem">
+                            <div class="inventoryCount">1</div>
+                            <div class="inventoryName">Rope, Hempen</div>
+                            <div class="inventoryLocation"></div>
+                            <div class="inventoryWeight">10</div>
+                            <div class="inventoryNotEqipped"></div>
+                        </div>
+                        <div class="inventoryItem">
+                            <div class="inventoryCount">1</div>
+                            <div class="inventoryName">Spellbook</div>
+                            <div class="inventoryLocation"></div>
+                            <div class="inventoryWeight">3</div>
+                            <div class="inventoryNotEqipped"></div>
+                        </div>
+                        <div class="inventoryItem">
+                            <div class="inventoryCount">1</div>
+                            <div class="inventoryName">Tinderbox</div>
+                            <div class="inventoryLocation"></div>
+                            <div class="inventoryWeight">1</div>
+                            <div class="inventoryNotEqipped"></div>
+                        </div>
+                        <div class="inventoryItem">
+                            <div class="inventoryCount">10</div>
+                            <div class="inventoryName">Torch</div>
+                            <div class="inventoryLocation"></div>
+                            <div class="inventoryWeight">1</div>
+                            <div class="inventoryNotEqipped"></div>
+                        </div>
+                        <div class="inventoryItem">
+                            <div class="inventoryCount">1</div>
+                            <div class="inventoryName">Waterskin</div>
+                            <div class="inventoryLocation"></div>
+                            <div class="inventoryWeight">5</div>
+                            <div class="inventoryNotEqipped"></div>
+                        </div>
+                    </div>
+                    <div class="listSection">
+                        <div class="listLabel">Treasure</div>
+                        <div class="treasureRow">
+                            <div class="treasureLabel"></div>
+                            <div class="treasureEmpty"></div>
+                            <div class="treasureLabel"></div>
+                            <div class="treasureEmpty"></div>
+                            <div class="treasureLabel"></div>
+                            <div class="treasureEmpty"></div>
+                        </div>
+                        <div class="treasureRow">
+                            <div class="treasureLabel"></div>
+                            <div class="treasureEmpty"></div>
+                            <div class="treasureLabel"></div>
+                            <div class="treasureEmpty"></div>
+                            <div class="treasureLabel"></div>
+                            <div class="treasureEmpty"></div>
+                        </div>
+                    </div>
+                    <div class="listSection">
+                        <div class="listLabel">Encumberance</div>
+                        <div class="encRow">
+                            <div class="encLabel">Maximum</div>
+                            <div class="encAmount">120</div>
+                            <div class="encLabel">Lift, Push, Drag</div>
+                            <div class="encAmount">240</div>
+                            <div class="encLabel">Current</div>
+                            <div class="encAmount">78.00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page">
+                <div class="characterContainer">
+                    <div class="header">
+                        <div class="name">Charlemagne Trefóil</div>
+                        <div class="headerInfo">
+                            <div class="info">
+                                <div class="infoRow">
+                                    <div class="infoContainer">
+                                        <div class="infoValue">Wizard 1</div>
+                                    </div>
+                                    <div class="infoContainer">
+                                        <div class="infoValue">Human-Variant</div>
+                                    </div>
+                                    <div class="infoContainer">
+                                        <div class="infoValue">Charlatan</div>
+                                    </div>
+                                    <div class="infoContainer">
+                                        <div class="infoValue"></div>
+                                    </div>
+                                </div>
+                                <div class="infoRow">
+                                    <div class="infoContainer">
+                                        <div class="label">Class &amp; Level</div>
+                                    </div>
+                                    <div class="infoContainer">
+                                        <div class="label">Race</div>
+                                    </div>
+                                    <div class="infoContainer">
+                                        <div class="label">Background</div>
+                                    </div>
+                                    <div class="infoContainer">
+                                        <div class="label">Alignment</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="experience">
+                                <div class="infoValue">0 / 300</div>
+                                <div class="label">Experience</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="listSection">
+                        <div class="listLabel">Details</div>
+                        <div class="detailsRow">
+                            <div class="detailsLabel">Gender</div>
+                            <div class="detailsValue"></div>
+                            <div class="detailsLabel">Age</div>
+                            <div class="detailsValue"></div>
+                            <div class="detailsLabel">Height</div>
+                            <div class="detailsValue"></div>
+                            <div class="detailsLabel">Weight</div>
+                            <div class="detailsValue"></div>
+                            <div class="detailsLabel">Size</div>
+                            <div class="detailsValue">Medium</div>
+                        </div>
+                    </div>
+                    <div class="listSection">
+                        <div class="listLabel">Deity</div>
+                        <div class="listLine">None</div>
+                    </div>
+                    <div class="listSection">
+                        <div class="listLabel">Personality Traits</div>
+                        <div class="listLine">None</div>
+                    </div>
+                    <div class="listSection">
+                        <div class="listLabel">Ideals</div>
+                        <div class="listLine">None</div>
+                    </div>
+                    <div class="listSection">
+                        <div class="listLabel">Bonds</div>
+                        <div class="listLine">None</div>
+                    </div>
+                    <div class="listSection">
+                        <div class="listLabel">Flaws</div>
+                        <div class="listLine">None</div>
+                    </div>
+                    <div class="listSection">
+                        <div class="listLabel">Appearance</div>
+                        <div class="listLine">None</div>
+                    </div>
+                    <div class="listSection">
+                        <div class="listLabel">Backstory</div>
+                        <div class="listLine">Ivar Baran ist sein wirklicher Name, Charlemagne Trefóil ist seine falsche
+                            Identität aus dem</div>
+                        <div class="listLine"> Charlatan-Background.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="page">
+                <div class="characterContainer">
+                    <div class="header">
+                        <div class="name">Charlemagne Trefóil</div>
+                        <div class="headerInfo">
+                            <div class="info">
+                                <div class="infoRow">
+                                    <div class="infoContainer">
+                                        <div class="infoValue">Wizard 1</div>
+                                    </div>
+                                    <div class="infoContainer">
+                                        <div class="infoValue">Human-Variant</div>
+                                    </div>
+                                    <div class="infoContainer">
+                                        <div class="infoValue">Charlatan</div>
+                                    </div>
+                                    <div class="infoContainer">
+                                        <div class="infoValue"></div>
+                                    </div>
+                                </div>
+                                <div class="infoRow">
+                                    <div class="infoContainer">
+                                        <div class="label">Class &amp; Level</div>
+                                    </div>
+                                    <div class="infoContainer">
+                                        <div class="label">Race</div>
+                                    </div>
+                                    <div class="infoContainer">
+                                        <div class="label">Background</div>
+                                    </div>
+                                    <div class="infoContainer">
+                                        <div class="label">Alignment</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="experience">
+                                <div class="infoValue">0 / 300</div>
+                                <div class="label">Experience</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="listSection">
+                        <div class="listLabel">Weapons</div>
+                        <div class="listLine">Quarterstaff
+                            - 1d6 bludgeoning </div>
+                    </div>
+                    <div class="listSection">
+                        <div class="listLabel">Spell Slots</div>
+                        <div class="listLine">
+                            <div class="slotList">
+                                <div>
+                                    <span>1st:</span>
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="none"  stroke="#000000"  stroke-width="1.25"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></svg>
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="none"  stroke="#000000"  stroke-width="1.25"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></svg>
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="none"  stroke="#000000"  stroke-width="1.25"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></svg>
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="none"  stroke="#000000"  stroke-width="1.25"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></svg>
+                                </div>
+                            </div>
+                            <div class="slotList">
+                                <div>
+                                    <span>2nd:</span>
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="none"  stroke="#000000"  stroke-width="1.25"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></svg>
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="none"  stroke="#000000"  stroke-width="1.25"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></svg>
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="none"  stroke="#000000"  stroke-width="1.25"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></svg>
+                                </div>
+                            </div>
+                            <div class="slotList">
+                                <div>
+                                    <span>3rd:</span>
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="none"  stroke="#000000"  stroke-width="1.25"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></svg>
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="none"  stroke="#000000"  stroke-width="1.25"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></svg>
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="none"  stroke="#000000"  stroke-width="1.25"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></svg>
+                                </div>
+                            </div>
+                            <div class="slotList">
+                                <div>
+                                    <span>4th:</span>
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="none"  stroke="#000000"  stroke-width="1.25"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></svg>
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="none"  stroke="#000000"  stroke-width="1.25"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></svg>
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="none"  stroke="#000000"  stroke-width="1.25"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></svg>
+                                </div>
+                            </div>
+                            <div class="slotList">
+                                <div>
+                                    <span>5th:</span>
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="none"  stroke="#000000"  stroke-width="1.25"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></svg>
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="none"  stroke="#000000"  stroke-width="1.25"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></svg>
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="none"  stroke="#000000"  stroke-width="1.25"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></svg>
+                                </div>
+                            </div>
+                            <div class="slotList">
+                                <div>
+                                    <span>6th:</span>
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="none"  stroke="#000000"  stroke-width="1.25"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></svg>
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="none"  stroke="#000000"  stroke-width="1.25"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></svg>
+                                </div>
+                            </div>
+                            <div class="slotList">
+                                <div>
+                                    <span>7th:</span>
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="none"  stroke="#000000"  stroke-width="1.25"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></svg>
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="none"  stroke="#000000"  stroke-width="1.25"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></svg>
+                                </div>
+                            </div>
+                            <div class="slotList">
+                                <div>
+                                    <span>8th:</span>
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="none"  stroke="#000000"  stroke-width="1.25"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></svg>
+                                </div>
+                            </div>
+                            <div class="slotList">
+                                <div>
+                                    <span>9th:</span>
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="none"  stroke="#000000"  stroke-width="1.25"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="listSection">
+                        <div class="listLabel">Cantrips</div>
+                        <div class="listLine">Prestidigitation</div>
+                        <div class="listLine">Fire Bolt</div>
+                        <div class="listLine">Message</div>
+                    </div>
+                    <div class="listSection">
+                        <div class="listLabel">1st Level Spells (Wizard)</div>
+                        <div class="listLine">
+                            <div class="spellTitleLine">
+                                <span class="preparedState">
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="#000000"  stroke-width="1.25"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></svg>
+                                </span>
+                                <span class="spellName">Magic Missile</span>
+                                <span class="spellSchool">Evocation</span>
+                            </div>
+                            <div class="spellDescription">
+                                <div>
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="#000000"  stroke-width="1.25"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-ruler-measure"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19.875 12c.621 0 1.125 .512 1.125 1.143v5.714c0 .631 -.504 1.143 -1.125 1.143h-15.875a1 1 0 0 1 -1 -1v-5.857c0 -.631 .504 -1.143 1.125 -1.143h15.75z" /><path d="M9 12v2" /><path d="M6 12v3" /><path d="M12 12v3" /><path d="M18 12v3" /><path d="M15 12v2" /><path d="M3 3v4" /><path d="M3 5h18" /><path d="M21 3v4" /></svg>
+                                    <span>120 feet</span>
+                                </div>
+                                <div>
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="#000000"  stroke-width="1.25"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-wand"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 21l15 -15l-3 -3l-15 15l3 3" /><path d="M15 6l3 3" /><path d="M9 3a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2" /><path d="M19 13a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2" /></svg>
+                                    <span>1 action</span>
+                                </div>
+                                <div>
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="#000000"  stroke-width="1.25"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-clock"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" /><path d="M12 7v5l3 3" /></svg>
+                                    <span>Instantaneous</span>
+                                </div>
+                                <div>
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1.25"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-current-location"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M12 12m-8 0a8 8 0 1 0 16 0a8 8 0 1 0 -16 0" /><path d="M12 2l0 2" /><path d="M12 20l0 2" /><path d="M20 12l2 0" /><path d="M2 12l2 0" /></svg>
+                                    <span>1d4 force</span>
+                                </div>
+                            </div>
+                            <div class="spellText">
+                                <p>You create three glowing darts of magical force. Each dart hits a creature of your choice that you can see within range. A dart deals 1d4 + 1 force damage to its target. The darts all strike simultaneously, and you can direct them to hit one creature or several.</p>
+					<p>
+						<b>At Higher Levels. </b>When you cast this spell using a spell slot of 2nd level or higher, the spell creates one more dart for each slot level above 1st.</p>
+                            </div>
+                        </div>
+                        <div class="listLine">✓ Shield</div>
+                    </div>
+                    <div class="listSection">
+                        <div class="listLabel">Class (Wizard)</div>
+                        <div class="listLine">✓ Arcane Recovery</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>!function (e) { function t(t) { for (var n, i, a = t[0], c = t[1], l = t[2], s = 0, p = []; s < a.length; s++)i = a[s], Object.prototype.hasOwnProperty.call(o, i) && o[i] && p.push(o[i][0]), o[i] = 0; for (n in c) Object.prototype.hasOwnProperty.call(c, n) && (e[n] = c[n]); for (f && f(t); p.length;)p.shift()(); return u.push.apply(u, l || []), r() } function r() { for (var e, t = 0; t < u.length; t++) { for (var r = u[t], n = !0, a = 1; a < r.length; a++) { var c = r[a]; 0 !== o[c] && (n = !1) } n && (u.splice(t--, 1), e = i(i.s = r[0])) } return e } var n = {}, o = { 1: 0 }, u = []; function i(t) { if (n[t]) return n[t].exports; var r = n[t] = { i: t, l: !1, exports: {} }; return e[t].call(r.exports, r, r.exports, i), r.l = !0, r.exports } i.e = function (e) { var t = [], r = o[e]; if (0 !== r) if (r) t.push(r[2]); else { var n = new Promise((function (t, n) { r = o[e] = [t, n] })); t.push(r[2] = n); var u, a = document.createElement("script"); a.charset = "utf-8", a.timeout = 120, i.nc && a.setAttribute("nonce", i.nc), a.src = function (e) { return i.p + "static/js/" + ({}[e] || e) + "." + { 3: "607f473f" }[e] + ".chunk.js" }(e); var c = new Error; u = function (t) { a.onerror = a.onload = null, clearTimeout(l); var r = o[e]; if (0 !== r) { if (r) { var n = t && ("load" === t.type ? "missing" : t.type), u = t && t.target && t.target.src; c.message = "Loading chunk " + e + " failed.\n(" + n + ": " + u + ")", c.name = "ChunkLoadError", c.type = n, c.request = u, r[1](c) } o[e] = void 0 } }; var l = setTimeout((function () { u({ type: "timeout", target: a }) }), 12e4); a.onerror = a.onload = u, document.head.appendChild(a) } return Promise.all(t) }, i.m = e, i.c = n, i.d = function (e, t, r) { i.o(e, t) || Object.defineProperty(e, t, { enumerable: !0, get: r }) }, i.r = function (e) { "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }), Object.defineProperty(e, "__esModule", { value: !0 }) }, i.t = function (e, t) { if (1 & t && (e = i(e)), 8 & t) return e; if (4 & t && "object" == typeof e && e && e.__esModule) return e; var r = Object.create(null); if (i.r(r), Object.defineProperty(r, "default", { enumerable: !0, value: e }), 2 & t && "string" != typeof e) for (var n in e) i.d(r, n, function (t) { return e[t] }.bind(null, n)); return r }, i.n = function (e) { var t = e && e.__esModule ? function () { return e.default } : function () { return e }; return i.d(t, "a", t), t }, i.o = function (e, t) { return Object.prototype.hasOwnProperty.call(e, t) }, i.p = "/", i.oe = function (e) { throw console.error(e), e }; var a = this.webpackJsonpclient = this.webpackJsonpclient || [], c = a.push.bind(a); a.push = t, a = a.slice(); for (var l = 0; l < a.length; l++)t(a[l]); var f = c; r() }([])</script>
+    <script src="/static/js/2.9db9cfeb.chunk.js"></script>
+    <script src="/static/js/main.9db763f6.chunk.js"></script>
+</body>
+
+</html>
