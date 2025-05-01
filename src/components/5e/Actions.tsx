@@ -1,4 +1,4 @@
-import React from "react";
+import React, { JSX } from "react";
 import CharacterHeader from "./CharacterHeader";
 import Page from "../Page";
 
@@ -10,6 +10,14 @@ interface Power {
   name: string;
   prepared: boolean;
   group: string;
+}
+
+class PowerGroup {
+  actions: (JSX.Element | string)[];
+
+  constructor() {
+    this.actions = [];
+  }
 }
 
 const MAX_SPELLS_LINES = 26;
@@ -195,14 +203,15 @@ const getPowers = (powers: any): Power[] => {
   return allPowers;
 };
 
-export const powerToString = (power: Power): string => {
-  return `${power.prepared ? "✓" : ""} ${power.name}`;
+export const powerToString = (power: Power): string | JSX.Element => {
+  return <span><span>{power.prepared ? "✓" : ""}</span><span>{power.name}</span></span>;
+  // return `${power.prepared ? "✓" : ""} ${power.name}`;
 };
 
 export const Actions = ({ character }: SpellsProps) => {
   const { powers, powermeta: spellSlots, weaponlist: weaponList } = character;
 
-  const allFeatures: string[] = [];
+  const allFeatures: (string | JSX.Element)[] = [];
 
   // Add weaponlist
   allFeatures.push("TITLE:Weapons");
@@ -348,7 +357,7 @@ export const Actions = ({ character }: SpellsProps) => {
     allFeatures.push(powerToString(power));
   });
 
-  const pages: string[][] = [];
+  const pages: (string | JSX.Element)[][] = [];
   // Chunk into pages
   for (let i = 0; i < allFeatures.length; i += MAX_SPELLS_LINES) {
     const tempArray = allFeatures.slice(i, i + MAX_SPELLS_LINES);
@@ -358,22 +367,25 @@ export const Actions = ({ character }: SpellsProps) => {
   return (
     <>
       {pages.map((page, index) => {
-        const groups: string[][] = [[]];
+        //const groups: string[][] = [[]];
+        const groups: PowerGroup[] = [new PowerGroup()];
         let curIndex = 0;
         // Split into groups
         for (let i = 0; i < page.length; i += 1) {
           const line = page[i];
           if (
             i !== 0 &&
+            typeof line === "string" &&
             line.indexOf("TITLE") === 0 &&
             line.indexOf("NORENDER") === -1
           ) {
             // New group
-            groups.push([]);
+            groups.push(new PowerGroup());
             curIndex += 1;
           }
-          groups[curIndex].push(line);
+          groups[curIndex].actions.push(line);
         }
+        console.log(groups)
 
         return (
           <Page key={`logs-${index}`}>
@@ -382,30 +394,39 @@ export const Actions = ({ character }: SpellsProps) => {
               {groups.map((group, gindex) => {
                 return (
                   <div className="listSection" key={`logsgroup-${gindex}`}>
-                    {group.map((string, sindex) => {
-                      const isHeader = string.indexOf("TITLE:") === 0;
-                      if (isHeader) {
-                        if (string.indexOf("NORENDER") === -1) {
+                    {group.actions.map((action, sindex) => {
+                      if (typeof action === "string") {
+                        const isHeader = action.indexOf("TITLE:") === 0;
+                        if (isHeader) {
+                          if (action.indexOf("NORENDER") === -1) {
+                            return (
+                              <div
+                                className="listLabel"
+                                key={`logsstring-${gindex}${sindex}`}
+                              >
+                                {action.split("TITLE:")[1]}
+                              </div>
+                            );
+                          } else {
+                            return null;
+                          }
+                        } else {
                           return (
                             <div
-                              className="listLabel"
+                              className="listLine"
                               key={`logsstring-${gindex}${sindex}`}
                             >
-                              {string.split("TITLE:")[1]}
+                              {action}
                             </div>
                           );
-                        } else {
-                          return null;
                         }
                       } else {
-                        return (
-                          <div
-                            className="listLine"
-                            key={`logsstring-${gindex}${sindex}`}
-                          >
-                            {string}
-                          </div>
-                        );
+                        <div
+                          className="listLine"
+                          key={`logsstring-${gindex}${sindex}`}
+                        >
+                          {action}
+                        </div>
                       }
                     })}
                   </div>
