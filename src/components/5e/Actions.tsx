@@ -1,9 +1,10 @@
 import React, { JSX } from "react";
 import CharacterHeader from "./CharacterHeader";
 import Page from "../Page";
-import { Icons } from "./Icons";
 
 type SpellLevel = number;
+type ClassName = string;
+type GroupName = string;
 
 interface SpellsProps {
   character: any;
@@ -33,6 +34,7 @@ interface Weapon {
 
 interface Spell {
   name: string;
+  group: GroupName,
   school: string;
   level: SpellLevel;
   range: number;
@@ -41,12 +43,18 @@ interface Spell {
   components: string;
 }
 
+interface Feature {
+  name: string;
+  description: string;
+}
+
 interface CharacterActions {
   weapons: Weapon[];
   spellSlots: number[];
   pactSlots: number[];
-  magicSpells: Map<SpellLevel, Spell[]>;
-  pactSpells: Map<SpellLevel, Spell[]>;
+  magicSpells: Map<ClassName, Map<SpellLevel, Spell[]>>;
+  classFeatures: Map<ClassName, Feature[]>;
+  otherFeatures: Map<GroupName, Feature[]>;
 }
 
 class PowerGroup {
@@ -226,6 +234,55 @@ const parseMagicSlotList = (obj: any, slotName: string): number[] => {
   return slots;
 };
 
+const powerHasProperty = (power: any, propName: string): boolean => {
+  return power[propName as keyof any] && power[propName as keyof any].length;
+};
+
+const getPowerProperty = (power: any, propName: string, defaultValue: string = ""): string => {
+  return power[propName as keyof any] && power[propName as keyof any].length ? power[propName as keyof any][0]._ : defaultValue;
+};
+
+const getPowerNumberProperty = (power: any, propName: string, defaultValue: number = 0): number => {
+  return power[propName as keyof any] && power[propName as keyof any].length ? parseInt(power[propName as keyof any][0]._, 10) : defaultValue;
+};
+
+const parseSpellsAndFeatures = (powers: any, model: CharacterActions) => {
+  powers.forEach((power: any) => {
+    const keys = Object.keys(power);
+    keys.forEach((key) => {
+      const currentPower = power[key][0];
+      let group: GroupName = getPowerProperty(currentPower, "group", "Powers");
+      if (group.startsWith("Class")) {
+        // Power is a class feature
+        
+      } else if (group.startsWith("Spells")) {
+        // Power is some kind of spell
+        let spell: Spell = {
+          name: getPowerProperty(currentPower, "name"),
+          group: group,
+          school: getPowerProperty(currentPower, "school"),
+          level: getPowerNumberProperty(currentPower, "level"),
+          range: getPowerNumberProperty(currentPower, "range"),
+          castingTime: getPowerNumberProperty(currentPower, "castingtime"),
+          duration: getPowerNumberProperty(currentPower, "duration"),
+          components: getPowerProperty(currentPower, "components")
+        };
+        const originMatch = group.match(/Spells \((\w+)\)/);
+        if (originMatch && originMatch.length === 2) {
+          const originClass = originMatch[1];
+          if (!model.magicSpells.has(originClass)) {
+            model.magicSpells.set(originClass, new Map());
+          }
+          if (!model.magicSpells.get(originClass)?.has(spell.level)) {
+            model.magicSpells.get(originClass)?.set(spell.level, []);
+          }
+          model.magicSpells.get(originClass)?.get(spell.level)?.push(spell);
+        }
+      }
+    })
+  })
+}
+
 export const powerToString = (power: Power): string | JSX.Element => {
   return <span><span>{power.prepared ? "✓" : ""}</span><span>{power.name}</span></span>;
   // return `${power.prepared ? "✓" : ""} ${power.name}`;
@@ -241,7 +298,8 @@ export const Actions = ({ character }: SpellsProps) => {
     spellSlots: [],
     pactSlots: [],
     magicSpells: new Map(),
-    pactSpells: new Map()
+    classFeatures: new Map(),
+    otherFeatures: new Map(),
   };
 
   // Parse out weapons
@@ -286,11 +344,13 @@ export const Actions = ({ character }: SpellsProps) => {
     slots[0] &&
     slots[0].pactmagicslots1 &&
     slots[0].pactmagicslots1[0] &&
-    slots[0].pactmagicslots1[0].max &&
-    parseInt(slots[0].pactmagicslots1[0].max[0]._, 10) > 0
+    slots[0].pactmagicslots1[0].max
   ) {
     model.pactSlots = parseMagicSlotList(slots[0], "pactmagicslots");
   }
+
+  // Parse out class features
+  parseSpellsAndFeatures(powers, model);
 
   console.log(model);
 
