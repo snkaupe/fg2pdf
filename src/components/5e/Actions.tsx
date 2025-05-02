@@ -289,8 +289,10 @@ export const Actions = ({ character }: SpellsProps) => {
     slots[0].pactmagicslots1[0].max &&
     parseInt(slots[0].pactmagicslots1[0].max[0]._, 10) > 0
   ) {
-    model.pactSlots = parseMagicSlotList(slots[0], "pacmagicslots");
+    model.pactSlots = parseMagicSlotList(slots[0], "pactmagicslots");
   }
+
+  console.log(model);
 
   const allPowers = getPowers(powers);
 
