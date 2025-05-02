@@ -38,14 +38,30 @@ interface Spell {
   school: string;
   level: SpellLevel;
   range: number;
-  castingTime: number;
-  duration: number;
+  castingTime: string;
+  duration: string;
   components: string;
+  prepared: number;
+}
+
+interface SavingThrow {
+  saveType: string;
+  saveMagic: number;
+  actionType: string;
+  onMissDamage: string;
+  savedCBase: string;
+  savedCStat: string;
+}
+
+interface PowerAction {
+  savingThrow: SavingThrow | undefined;
+  damageList: Damage[] | undefined;
 }
 
 interface Feature {
   name: string;
   description: string;
+  actions: PowerAction[];
 }
 
 interface CharacterActions {
@@ -53,8 +69,9 @@ interface CharacterActions {
   spellSlots: number[];
   pactSlots: number[];
   magicSpells: Map<ClassName, Map<SpellLevel, Spell[]>>;
-  classFeatures: Map<ClassName, Feature[]>;
-  otherFeatures: Map<GroupName, Feature[]>;
+  speciesPowers: Feature[];
+  classPowers: Map<ClassName, Feature[]>;
+  otherPowers: Map<GroupName, Feature[]>;
 }
 
 class PowerGroup {
@@ -234,8 +251,45 @@ const parseMagicSlotList = (obj: any, slotName: string): number[] => {
   return slots;
 };
 
-const powerHasProperty = (power: any, propName: string): boolean => {
-  return power[propName as keyof any] && power[propName as keyof any].length;
+const parseActions = (actionsData: any): PowerAction[] => {
+  let actions: PowerAction[] = [];
+  console.log("actionsData:");
+  console.log(actionsData);
+  const keys = Object.keys(actionsData[0]);
+  keys.forEach((key) => {
+    if (!actionsData || ! actionsData[0]) {
+      return; // Leave lambda function
+    }
+    const currentAction = actionsData[0][key][0];
+    console.log("Checking action:");
+    console.log(currentAction);
+    let action: PowerAction = {
+      savingThrow: undefined,
+      damageList: undefined
+    };
+    if (actionHasProperty(currentAction, "savetype")) {
+      console.log("Saving Throw");
+      // Action is a saving throw
+      action.savingThrow = {
+        saveType: getPowerProperty(currentAction, "savetype"),
+        saveMagic: getPowerNumberProperty(currentAction, "savemagic"),
+        actionType: getPowerProperty(currentAction, "type"),
+        onMissDamage: getPowerProperty(currentAction, "onmissdamage"),
+        savedCBase: getPowerProperty(currentAction, "savedcbase"),
+        savedCStat: getPowerProperty(currentAction, "savedcstat"),
+      };
+    } else if (actionHasProperty(currentAction, "damagelist")) {
+      console.log("Damage List");
+      // Parse a damage list
+      action.damageList = parseDamageList(currentAction[0].damagelist);
+    }
+    actions.push(action);
+  });
+  return actions;
+}
+
+const actionHasProperty = (action: any, propName: string): boolean => {
+  return action[propName as keyof any] && action[propName as keyof any].length;
 };
 
 const getPowerProperty = (power: any, propName: string, defaultValue: string = ""): string => {
@@ -246,7 +300,7 @@ const getPowerNumberProperty = (power: any, propName: string, defaultValue: numb
   return power[propName as keyof any] && power[propName as keyof any].length ? parseInt(power[propName as keyof any][0]._, 10) : defaultValue;
 };
 
-const parseSpellsAndFeatures = (powers: any, model: CharacterActions) => {
+const parseSpellsAndPowers = (powers: any, model: CharacterActions) => {
   powers.forEach((power: any) => {
     const keys = Object.keys(power);
     keys.forEach((key) => {
@@ -254,7 +308,14 @@ const parseSpellsAndFeatures = (powers: any, model: CharacterActions) => {
       let group: GroupName = getPowerProperty(currentPower, "group", "Powers");
       if (group.startsWith("Class")) {
         // Power is a class feature
-        
+      } else if (group.startsWith("Species")) {
+        // Power is related to the character's species, e.g. a Dragonborn's breath weapon
+        let speciesPower: Feature = {
+          name: getPowerProperty(currentPower, "name"),
+          description: getPowerProperty(currentPower, "description"),
+          actions: parseActions(currentPower.actions)
+        };
+        model.speciesPowers.push(speciesPower);
       } else if (group.startsWith("Spells")) {
         // Power is some kind of spell
         let spell: Spell = {
@@ -263,9 +324,10 @@ const parseSpellsAndFeatures = (powers: any, model: CharacterActions) => {
           school: getPowerProperty(currentPower, "school"),
           level: getPowerNumberProperty(currentPower, "level"),
           range: getPowerNumberProperty(currentPower, "range"),
-          castingTime: getPowerNumberProperty(currentPower, "castingtime"),
-          duration: getPowerNumberProperty(currentPower, "duration"),
-          components: getPowerProperty(currentPower, "components")
+          castingTime: getPowerProperty(currentPower, "castingtime"),
+          duration: getPowerProperty(currentPower, "duration"),
+          components: getPowerProperty(currentPower, "components"),
+          prepared: getPowerNumberProperty(currentPower, "prepared"),
         };
         const originMatch = group.match(/Spells \((\w+)\)/);
         if (originMatch && originMatch.length === 2) {
@@ -298,8 +360,9 @@ export const Actions = ({ character }: SpellsProps) => {
     spellSlots: [],
     pactSlots: [],
     magicSpells: new Map(),
-    classFeatures: new Map(),
-    otherFeatures: new Map(),
+    speciesPowers: [],
+    classPowers: new Map(),
+    otherPowers: new Map(),
   };
 
   // Parse out weapons
@@ -350,7 +413,7 @@ export const Actions = ({ character }: SpellsProps) => {
   }
 
   // Parse out class features
-  parseSpellsAndFeatures(powers, model);
+  parseSpellsAndPowers(powers, model);
 
   console.log(model);
 
@@ -398,7 +461,7 @@ export const Actions = ({ character }: SpellsProps) => {
           }
           groups[curIndex].actions.push(line);
         }
-        console.log(groups)
+        // console.log(groups)
 
         return (
           <Page key={`logs-${index}`}>
